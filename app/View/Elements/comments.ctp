@@ -1,0 +1,1 @@
+<!-- To enable comments, register to http://disqus.com/ and copy your code to /app/view/elements/comments.ctp -->
