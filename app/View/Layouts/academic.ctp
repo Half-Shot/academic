@@ -58,6 +58,8 @@
 
 Powered by Academic 0.9
 
+Download : <http://github.com/academic-cms/academic>
+
 Copyright (C) 2012 Jean Fau
 
 This program is free software: you can redistribute it and/or modify
