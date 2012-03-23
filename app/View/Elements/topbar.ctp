@@ -7,8 +7,8 @@
     <div class="container">
       <a class="brand" href="<?php echo $this->Html->url('/'); ?>">academic</a>
         <ul class="nav">
-          <li><a href="<?php echo $this->Html->url('/pages/help/'); ?>"><i class="icon-info-sign icon-white"></i> Help</a></li>
-          <li><a href="<?php echo $this->Html->url('/pages/academic/'); ?>"><i class="icon-question-sign icon-white"></i> About academic</a></li>
+          <li><a href="<?php echo $this->Html->url('http://academic-cms.github.com/documentation.html'); ?>"><i class="icon-info-sign icon-white"></i> Documentation</a></li>
+          <li><a href="<?php echo $this->Html->url('http://academic-cms.github.com/'); ?>"><i class="icon-question-sign icon-white"></i> About academic</a></li>
         </ul>
         <ul class="nav pull-right">
           <li id="fat-menu" class="dropdown">
