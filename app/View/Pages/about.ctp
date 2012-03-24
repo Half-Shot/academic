@@ -11,7 +11,7 @@
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam convallis bibendum lorem vitae aliquam. Quisque convallis libero non arcu fermentum egestas. Sed aliquam arcu sed velit ultrices tempor. Aliquam ac condimentum lectus. Quisque venenatis molestie ullamcorper.</p>
 
 <h3>Technology</h3>
-<p>This site is powered by <a href="https://github.com/academic-cms/academic">academic</a>. Its code is based on <a href="http://cakephp.org/">CakePHP</a> 2.1.0 and <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> 2.0.2. It respects HTML5 and CSS3 standards.</p>
+<p>This site is powered by <a href="http://academic-cms.github.com/">academic</a>. Its code is based on <a href="http://cakephp.org/">CakePHP</a> 2.1.0 and <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> 2.0.2. It respects HTML5 and CSS3 standards.</p>
 </div>
 
 <?php 

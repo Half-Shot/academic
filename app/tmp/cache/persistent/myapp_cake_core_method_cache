@@ -1,2 +1,2 @@
-1332515894
+1332605033
 a:2:{s:4:"name";a:9:{i:1162816212;s:10:"`academic`";i:1699281493;s:7:"`posts`";i:1486783737;s:11:"`Post`.`id`";i:2170203099;s:14:"`Post`.`title`";i:2061888135;s:13:"`Post`.`body`";i:3823185266;s:16:"`Post`.`created`";i:3061013652;s:15:"`Post`.`format`";i:2989919684;s:6:"`Post`";i:2609997277;s:7:"`count`";}s:6:"fields";a:2:{s:32:"5b5a136e13ce4e88557a8f7c5df99895";a:5:{i:0;s:11:"`Post`.`id`";i:1;s:14:"`Post`.`title`";i:2;s:13:"`Post`.`body`";i:3;s:16:"`Post`.`created`";i:4;s:15:"`Post`.`format`";}s:32:"de5f06fe266d7bcb121c35a956021ea6";a:1:{i:0;s:19:"COUNT(*) AS `count`";}}}

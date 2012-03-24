@@ -10706,3 +10706,142 @@
 2012-03-22 22:14:37 Error: [MissingControllerException] Controller class LoginController could not be found.
 #0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2012-03-24 14:37:34 Error: [MissingViewException] View file "/Users/Jean/Sites/academic/app/View/Posts/pdf/view.ctp" is missing.
+#0 /Users/Jean/Sites/academic/lib/Cake/View/View.php(460): View->_getViewFileName(NULL)
+#1 /Users/Jean/Sites/academic/lib/Cake/Controller/Controller.php(962): View->render(NULL, NULL)
+#2 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#3 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-03-24 14:39:25 Error: [MissingLayoutException] Layout file "/Users/Jean/Sites/academic/app/View/Layouts/pdf/academic.ctp" is missing.
+#0 /Users/Jean/Sites/academic/lib/Cake/View/View.php(501): View->_getLayoutFileName('academic')
+#1 /Users/Jean/Sites/academic/lib/Cake/View/View.php(471): View->renderLayout('', 'academic')
+#2 /Users/Jean/Sites/academic/lib/Cake/Controller/Controller.php(962): View->render(NULL, NULL)
+#3 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#4 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#5 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2012-03-24 14:40:06 Error: [MissingViewException] View file "/Users/Jean/Sites/academic/app/View/Posts/rss/view.ctp" is missing.
+#0 /Users/Jean/Sites/academic/lib/Cake/View/View.php(460): View->_getViewFileName(NULL)
+#1 /Users/Jean/Sites/academic/lib/Cake/Controller/Controller.php(962): View->render(NULL, NULL)
+#2 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#3 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-03-24 14:40:06 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 14:49:15 Error: [LogicException] Function 'DOMPDF_autoload' not found (function 'DOMPDF_autoload' not found or invalid function name)
+#0 /Users/Jean/Sites/academic/app/View/Layouts/pdf/default.ctp(3): spl_autoload_register('DOMPDF_autoload')
+#1 /Users/Jean/Sites/academic/lib/Cake/View/View.php(908): include('/Users/Jean/Sit...')
+#2 /Users/Jean/Sites/academic/lib/Cake/View/View.php(872): View->_evaluate('/Users/Jean/Sit...', Array)
+#3 /Users/Jean/Sites/academic/lib/Cake/View/View.php(527): View->_render('/Users/Jean/Sit...')
+#4 /Users/Jean/Sites/academic/lib/Cake/View/View.php(471): View->renderLayout('', 'default')
+#5 /Users/Jean/Sites/academic/lib/Cake/Controller/Controller.php(962): View->render(NULL, NULL)
+#6 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#7 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#8 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2012-03-24 14:49:15 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:30:46 Error: [HTML2PDF_exception] ERREUR n°6 : Impossible de charger l'image /academic/img/logo.png
+#0 /Users/Jean/Sites/academic/vendors/html2pdf/html2pdf.php(5615): HTML2PDF->_drawImage('/academic/img/l...', false)
+#1 /Users/Jean/Sites/academic/vendors/html2pdf/html2pdf.php(1255): HTML2PDF->_tag_open_IMG(Array)
+#2 /Users/Jean/Sites/academic/vendors/html2pdf/html2pdf.php(1226): HTML2PDF->_executeAction(Array)
+#3 /Users/Jean/Sites/academic/vendors/html2pdf/html2pdf.php(408): HTML2PDF->_makeHTMLcode()
+#4 /Users/Jean/Sites/academic/app/View/Layouts/pdf/default.ctp(8): HTML2PDF->writeHTML('<img src="/acad...')
+#5 /Users/Jean/Sites/academic/lib/Cake/View/View.php(908): include('/Users/Jean/Sit...')
+#6 /Users/Jean/Sites/academic/lib/Cake/View/View.php(872): View->_evaluate('/Users/Jean/Sit...', Array)
+#7 /Users/Jean/Sites/academic/lib/Cake/View/View.php(527): View->_render('/Users/Jean/Sit...')
+#8 /Users/Jean/Sites/academic/lib/Cake/View/View.php(471): View->renderLayout('', 'default')
+#9 /Users/Jean/Sites/academic/lib/Cake/Controller/Controller.php(962): View->render(NULL, NULL)
+#10 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#11 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#12 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2012-03-24 16:30:47 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:44:16 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:44:18 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:44:18 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:45:45 Error: [HTML2PDF_exception] ERREUR n°6 : Impossible de charger l'image ../../img/logo.png
+#0 /Users/Jean/Sites/academic/vendors/html2pdf/html2pdf.php(5615): HTML2PDF->_drawImage('../../img/logo....', false)
+#1 /Users/Jean/Sites/academic/vendors/html2pdf/html2pdf.php(1255): HTML2PDF->_tag_open_IMG(Array)
+#2 /Users/Jean/Sites/academic/vendors/html2pdf/html2pdf.php(897): HTML2PDF->_executeAction(Array)
+#3 /Users/Jean/Sites/academic/vendors/html2pdf/html2pdf.php(854): HTML2PDF->_setNewPositionForNewLine(NULL)
+#4 /Users/Jean/Sites/academic/vendors/html2pdf/html2pdf.php(1290): HTML2PDF->_setNewLine(3.52777777778, NULL)
+#5 /Users/Jean/Sites/academic/vendors/html2pdf/html2pdf.php(4148): HTML2PDF->_makeBreakLine(3.52777777778)
+#6 /Users/Jean/Sites/academic/vendors/html2pdf/html2pdf.php(1255): HTML2PDF->_tag_open_P(Array)
+#7 /Users/Jean/Sites/academic/vendors/html2pdf/html2pdf.php(1226): HTML2PDF->_executeAction(Array)
+#8 /Users/Jean/Sites/academic/vendors/html2pdf/html2pdf.php(408): HTML2PDF->_makeHTMLcode()
+#9 /Users/Jean/Sites/academic/app/View/Layouts/pdf/default.ctp(8): HTML2PDF->writeHTML('<h1>A standard ...')
+#10 /Users/Jean/Sites/academic/lib/Cake/View/View.php(908): include('/Users/Jean/Sit...')
+#11 /Users/Jean/Sites/academic/lib/Cake/View/View.php(872): View->_evaluate('/Users/Jean/Sit...', Array)
+#12 /Users/Jean/Sites/academic/lib/Cake/View/View.php(527): View->_render('/Users/Jean/Sit...')
+#13 /Users/Jean/Sites/academic/lib/Cake/View/View.php(471): View->renderLayout('', 'default')
+#14 /Users/Jean/Sites/academic/lib/Cake/Controller/Controller.php(962): View->render(NULL, NULL)
+#15 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#16 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#17 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#18 {main}
+2012-03-24 16:45:46 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:47:39 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:47:39 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:57:07 Error: [MissingActionException] Action PostsController::dit() could not be found.
+#0 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/Jean/Sites/academic/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-03-24 16:57:07 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:57:15 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:57:15 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:57:35 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:57:35 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:59:28 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:59:28 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:59:48 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 16:59:48 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 17:00:26 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 17:00:26 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 17:00:44 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-03-24 17:00:44 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+#0 /Users/Jean/Sites/academic/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

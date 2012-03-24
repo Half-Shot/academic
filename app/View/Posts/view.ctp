@@ -3,7 +3,7 @@
 
 <div class="centered">
 <h2><?php echo h($post['Post']['title'])?> <?php if(($post['Post']['format']) == 'link') {
-echo ("<img src='http://localhost:8888/academic/img/external_black.gif' alt='' width='25' height='25' style='margin-top: -8px'>");
+echo ("→");
 }
 ?></h2>
 <p><i><small>Written <?php echo $post['Post']['created']?></small></i></p>
@@ -12,6 +12,8 @@ echo ("<img src='http://localhost:8888/academic/img/external_black.gif' alt='' w
 <div class="post-body">
 <?php echo ($post['Post']['body'])?>
 </div>
+
+<p style="margin-top: 15px; text-align: center;"><i class="icon-download-alt"></i> <?php echo $this->Html->link('Download as PDF', array('action'=>'view', 'ext'=>'pdf', $post['Post']['id'])); ?></p>
 
 <?php echo $this->element('legal'); ?>
 

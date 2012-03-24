@@ -6,7 +6,7 @@
 	
 	<div class="centered">
 	<h2><?php echo $this->Html->link($post['Post']['title'], array('controller' => 'posts', 'action' => 'view', $post['Post']['id'])); ?> <?php if(($post['Post']['format']) == 'link') {
-	echo ("<img src='http://localhost:8888/academic/img/external.gif' alt='' width='25' height='25' style='margin-top: -8px'>");
+	echo ("→");
 	}
 	?></h2>
 	<p><i><small>Written <?php echo $post['Post']['created']?></small></i></p>
