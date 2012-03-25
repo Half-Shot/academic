@@ -273,6 +273,19 @@ a:hover {
 .centered {
   text-align: center;
 }
+.message {
+	clear: both;
+	text-align: center;
+	padding: 8px 35px 8px 14px;
+	margin-bottom: 18px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	background-color: #FCF8E3;
+	border: 1px solid #FBEED5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	color: #C09853;
+}
 .container {
   margin-left: auto;
   margin-right: auto;

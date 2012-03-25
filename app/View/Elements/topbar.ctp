@@ -7,7 +7,6 @@
     <div class="container">
       <a class="brand" href="<?php echo $this->Html->url('/'); ?>">academic</a>
         <ul class="nav">
-          <li><a href="<?php echo $this->Html->url('http://academic-cms.github.com/documentation.html'); ?>"><i class="icon-info-sign icon-white"></i> Documentation</a></li>
           <li><a href="<?php echo $this->Html->url('http://academic-cms.github.com/'); ?>"><i class="icon-question-sign icon-white"></i> About academic</a></li>
         </ul>
         <ul class="nav pull-right">
@@ -15,7 +14,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> <?php echo $loggedusername ?><b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="<?php echo $this->Html->url('/posts/add/'); ?>"><i class="icon-pencil icon-black"></i> Publish</a></li>
-              <li><a href="<?php echo $this->Html->url('/pages/settings/'); ?>"><i class="icon-cog icon-black"></i> Settings</a></li>
+              <li><a href="<?php echo $this->Html->url('http://academic-cms.github.com/documentation.html'); ?>"><i class="icon-info-sign icon-black"></i> Documentation</a></li>
               <li class="divider"></li>
               <li><a href="<?php echo $this->Html->url('/users/logout/'); ?>"><i class=" icon-off icon-black"></i> Logout</a></li>
             </ul>
