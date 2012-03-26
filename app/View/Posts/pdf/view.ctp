@@ -2,7 +2,7 @@
 
 <h1><?php echo h($post['Post']['title'])?></h1>
 <p>Written : <?php echo $post['Post']['created']?></p>
-<p>Source : <?php echo dirname(WWW_ROOT); ?></p>
+<p>Source : <?php echo Router::url($this->here, true); ?></p>
 
 <hr>
 

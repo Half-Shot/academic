@@ -15,10 +15,10 @@ echo ("→");
 </div>
 
 <?php 
-$editlink = $this->Html->link('Edit this publication', array('action' => 'edit', $post['Post']['id'])); 
+$editlink = $this->Html->link('Edit', array('action' => 'edit', $post['Post']['id'])); 
  ?>
 
-<p style="margin-top: 15px; text-align: center;"><i class="icon-download-alt"></i> <?php echo $this->Html->link('Download as PDF', array('action'=>'view', 'ext'=>'pdf', $post['Post']['id'])); ?> <?php 
+<p style="margin-top: 15px; text-align: center;"><i class="icon-download-alt"></i> <?php echo $this->Html->link('Download as PDF', array('action'=>'view', 'ext'=>'pdf', $post['Post']['id'])); ?> - <a href="http://twitter.com/?status=<?php echo Router::url($this->here, true); ?>"><i class="icon-retweet"></i> Tweet this</a> <?php 
 if ('admin' == $this->Session->read('Auth.User.role')) {
 	echo ("- <i class='icon-edit'></i> $editlink");
 } ?> </p>

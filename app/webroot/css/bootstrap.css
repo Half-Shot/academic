@@ -286,6 +286,10 @@ a:hover {
 	border-radius: 4px;
 	color: #C09853;
 }
+.footnotes {
+  margin-left: 40px;
+  margin-right: 40px;
+}
 .container {
   margin-left: auto;
   margin-right: auto;
