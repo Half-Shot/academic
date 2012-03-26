@@ -5,7 +5,7 @@
 
 <div style="text-align: left;">
 
-<h3>Category 1</h3>
+<h3>Your links</h3>
 
 <p>
 	<ul>
@@ -14,20 +14,19 @@
 	    <li><a href="#">Link 3</a></li>
 	</ul>
 </p>
-<h3>Category 2</h3>
+<h3>Markdown</h3>
 <p>
 	<ul>
-	    <li><a href="#">Link 1</a></li>
-	    <li><a href="#">Link 2</a></li>
-	    <li><a href="#">Link 3</a></li>
+		<li><a href="http://daringfireball.net/projects/markdown/basics">Basics</a></li>
+		<li><a href="http://daringfireball.net/projects/markdown/syntax">Syntax</a></li>
 	</ul>
 </p>
-<h3>Category 3</h3>
+<h3>About academic</h3>
 <p>
 	<ul>
-	    <li><a href="#">Link 1</a></li>
-	    <li><a href="#">Link 2</a></li>
-	    <li><a href="#">Link 3</a></li>
+	    <li><a href="http://academic-cms.github.com/">Official website</a></li>
+	    <li><a href="http://academic-cms.github.com/documentation.html">Documentation</a></li>
+	    <li><a href="https://github.com/academic-cms/academic/issues">Submit an issue</a></li>
 	</ul>
 </p>
 </div>

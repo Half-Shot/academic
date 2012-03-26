@@ -25,12 +25,15 @@
 		    $deletelink = $this->Form->postLink(
 		        'Delete',
 		        array('action' => 'delete', $post['Post']['id']),
-		        array('confirm' => 'Are you sure?'));     
+		        array('confirm' => 'Are you sure you want to delete this publication?'));     
 		    ?>
 		    
 		    <tr>
 		        <td>
-		            <?php echo $this->Html->link($post['Post']['title'], array('action' => 'view', $post['Post']['id']));?>
+		            <?php echo $this->Html->link($post['Post']['title'], array('action' => 'view', $post['Post']['id']));?> <?php if(($post['Post']['format']) == 'link') {
+		            echo ("→");
+		            }
+		            ?>
 		        </td>
 		        <td>
 		            <?php echo $post['Post']['created']; ?>

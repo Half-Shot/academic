@@ -45,7 +45,7 @@ class PagesController extends AppController {
  */
 	public $helpers = array('Html', 'Session', 'Form', 'Paginator');
 	var $paginate = array(
-	    'limit' => 2,
+	    'limit' => 5,
 	    'order' => array(
 	    'Post.created' => 'desc'
 	     )

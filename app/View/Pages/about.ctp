@@ -4,6 +4,15 @@
 <div class='centered'><h1 style="margin-bottom: 20px;">About</h1></div>
 
 <div style="text-align: justify;">
+
+<ul class="thumbnails">
+  <li>
+    <div class="thumbnail">
+      <img src="http://placehold.it/500x110" alt="">
+    </div>
+  </li>
+</ul>
+
 <h3>About me</h3>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam convallis bibendum lorem vitae aliquam. Quisque convallis libero non arcu fermentum egestas. Sed aliquam arcu sed velit ultrices tempor. Aliquam ac condimentum lectus. Quisque venenatis molestie ullamcorper.</p>
 

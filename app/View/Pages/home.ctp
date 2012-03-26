@@ -1,6 +1,6 @@
 <?php $this->layout = 'academic'; ?>
 <?php $this->set("title_for_layout","Academic"); ?>
-
+<?php App::import('Vendor', 'markdown/markdown-extra'); ?>
 
 <?php foreach ($posts as $post): ?>
 	
@@ -12,7 +12,7 @@
 	<p><i><small>Written <?php echo $post['Post']['created']?></small></i></p>
 	</div>
 	
-	<div class="post-body"><?php echo $post['Post']['body']; ?></div>
+	<div class="post-body"><?php echo Markdown($post['Post']['body']); ?></div>
 	
 	<hr>
 

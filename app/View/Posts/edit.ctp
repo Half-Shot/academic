@@ -28,4 +28,4 @@ echo $this->Form->input('id', array('type' => 'hidden'));
 	
 echo ("<input type='submit' class='btn' value='Save changes'>"); ?>
 
-<a class="btn btn-danger" href="<?php echo $this->Html->url('/posts/'); ?>"><i class="icon-trash icon-white"></i> Cancel</a>
+<a class="btn btn-danger" href="<?php echo $this->Html->url('/posts/'); ?>">Cancel</a>

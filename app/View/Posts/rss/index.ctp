@@ -1,3 +1,4 @@
+<? App::import('Vendor', 'markdown/markdown-extra'); ?>
 <?php
 $this->set('documentData', array(
     'xmlns:dc' => 'http://purl.org/dc/elements/1.1/'));
@@ -35,7 +36,7 @@ foreach ($posts as $post) {
         'title' => $post['Post']['title'],
         'link' => $postLink,
         'guid' => array('url' => $postLink, 'isPermaLink' => 'true'),
-        'description' => $post['Post']['body'],
+        'description' => Markdown($post['Post']['body']),
         'pubDate' => $post['Post']['created']
     ));
 }

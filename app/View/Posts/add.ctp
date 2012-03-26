@@ -15,14 +15,18 @@ echo $this->Form->create('Post', array(
 ) ));
 
 echo $this->Form->input('title',array(
-	'style' => 'width:490px', 'before' => '<span class = \'control-label\'>Title</span>'));
+	'style' => 'width:490px', 
+	'before' => '<span class = \'control-label\'>Title</span>'));
 
 echo $this->Form->input('body',array(
-	'style' => 'width:490px', 'rows' => '15', 'before' => '<span class = \'control-label\'>Content</span>'));
+	'style' => 'width:490px', 
+	'rows' => '15', 
+	'placeholder' => 'You can use HTML or Markdown syntax',
+	'before' => '<span class = \'control-label\'>Content</span>'));
 	
 echo $this->Form->input('format', array(
     'options' => array('standard' => 'Standard post', 'link' => 'Link post')));
 	
 echo ("<input type='submit' class='btn' value='Publish'>"); ?>
 
-<a class="btn btn-danger" href="<?php echo $this->Html->url('/'); ?>"><i class="icon-trash icon-white"></i> Cancel</a>
+<a class="btn btn-danger" href="<?php echo $this->Html->url('/'); ?>">Cancel</a>
