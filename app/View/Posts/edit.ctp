@@ -1,4 +1,5 @@
 <?php $this->layout = 'academic'; ?>
+<?php $this->set("title_for_layout","Edit an article"); ?>
 
 <div class='centered'><h1 style="margin-bottom: 20px;">Edit an article</h1></div>
 
@@ -22,7 +23,7 @@ echo $this->Form->input('body',array(
 	'style' => 'width:490px', 'rows' => '15', 'before' => '<span class = \'control-label\'>Content</span>'));
 	
 echo $this->Form->input('format', array(
-    'options' => array('standard' => 'Standard post', 'link' => 'Link post')));
+    'options' => array('standard' => 'Standard post', 'link' => 'Link post →', 'status' => '# Status post')));
     
 echo $this->Form->input('id', array('type' => 'hidden'));
 	

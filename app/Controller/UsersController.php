@@ -6,7 +6,7 @@ class UsersController extends AppController {
 	    if ($this->Auth->login()) {
 	        $this->redirect($this->Auth->redirect());
 	    } else {
-	        $this->Session->setFlash(__('Invalid username or password, try again'));
+	        $this->Session->setFlash(__('Please enter a valid username and password'));
 	    }
 	}
 	
@@ -33,11 +33,12 @@ class UsersController extends AppController {
     }
 
     public function add() {
+    	$this->set('users', $this->User->find('all')); //used to hide add form in /view/Users/add.ctp add.php if there is already an admin account registered
         if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'index'));
+                $this->redirect(array('controller' => 'pages', 'action' => 'index'));
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }

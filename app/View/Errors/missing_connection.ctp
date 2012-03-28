@@ -13,7 +13,7 @@
 <div class="progress progress-striped
      active">
   <div class="bar"
-       style="width: 5%;"></div>
+       style="width: 33%;"></div>
 </div>
 
 <p style="margin-top: 40px;">First of all, you must edit via ftp the file<code>/app/Config.database.php</code> to enter your database info. When it's done click next.</p>
@@ -24,8 +24,14 @@
 
 </div>
 
-
+<hr>
 
 <div class="alert alert-info" style="margin-top: 30px;">
- <p><b>If you already installed academic</b>, you may be viewing this message because your database is temporarily inaccessible or your database server is down. For more information, please check the <a href="http://academic-cms.github.com/documentation.html">documentation</a></p>
+ <p><b>If you already installed academic</b>, you may be viewing this message because :
+	 <ul>
+	 	<li>your database is temporarily inaccessible</li>
+	 	<li>your database server is down</li>
+	 	<li>you have edited /app/Config.database.php</li>
+	 </ul>
+ For more information, please check <a href="http://academic-cms.github.com/documentation.html">the documentation.</a></p>
 </div>

@@ -1,5 +1,16 @@
 <?php
 /**
+ * SEO Configuration 
+ */
+
+//Site name
+Configure::write('site.name', 'Academic blog');
+
+//Site author
+Configure::write('site.author', 'Academic user');
+
+
+/**
  * This file is loaded automatically by the app/webroot/index.php file after core.php
  *
  * This file should load/create any application wide configuration settings, such as 

@@ -1,14 +1,28 @@
 <?php $this->layout = 'academic'; ?>
 
-<div class="users form">
-<?php echo $this->Session->flash('auth'); ?>
-<?php echo $this->Form->create('User');?>
-    <fieldset>
-        <legend><?php echo __('Please enter your username and password'); ?></legend>
-    <?php
-        echo $this->Form->input('username');
-        echo $this->Form->input('password');
-    ?>
-    </fieldset>
-<?php echo $this->Form->end(__('Login'));?>
+<div class='centered'><h1 style="margin-bottom: 20px;">Login</h1></div>
+
+<div style="width: 220px; margin-left: 150px;">
+<?php
+echo $this->Session->flash('auth');
+
+echo $this->Form->create('User', array(
+	'class' => 'form', 
+	'inputDefaults' => array(
+	    'div' => 'control-group',
+	    'label' => false,
+	    'between' => '<div class="controls">',
+	    'after' => '</div>',
+	    'error' => array('attributes' => array('wrap' => 'div', 'class' => 'alert alert-error'))
+) ));
+
+echo $this->Form->input('username',array(
+	'style' => 'width:200px', 
+	'before' => '<span class = \'control-label\'>Username</span>'));
+
+echo $this->Form->input('password',array(
+	'style' => 'width:200px',
+	'before' => '<span class = \'control-label\'>Password</span>'));
+	
+echo ("<input type='submit' class='btn' value='Login'>"); ?>
 </div>

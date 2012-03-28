@@ -1,5 +1,9 @@
 <?php $this->layout = 'academic'; ?>
-<?php $this->set("title_for_layout","Blog archives"); ?>
+
+<!-- Define SEO variables. Go to /app/Config/boostrap.php to edit -->
+<?php $siteName = (Configure::read('site.name')); ?>
+
+<?php $this->set("title_for_layout","Publication archives - $siteName"); ?>
 
 		<div class='centered'><h1 style="margin-bottom: 20px;">Archives</h1></div>
 		
@@ -30,10 +34,11 @@
 		    
 		    <tr>
 		        <td>
-		            <?php echo $this->Html->link($post['Post']['title'], array('action' => 'view', $post['Post']['id']));?> <?php if(($post['Post']['format']) == 'link') {
-		            echo ("→");
-		            }
-		            ?>
+		            <?php if (($post['Post']['format']) == 'status') {
+		            	echo ("#");
+		            }; ?> <?php echo $this->Html->link($post['Post']['title'], array('action' => 'view', $post['Post']['id']));?> <?php if(($post['Post']['format']) == 'link') {
+		            	echo ("→");
+		            } ?>
 		        </td>
 		        <td>
 		            <?php echo $post['Post']['created']; ?>

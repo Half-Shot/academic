@@ -1,5 +1,9 @@
 <?php $this->layout = 'academic'; ?>
-<?php $this->set("title_for_layout","About"); ?>
+
+<!-- Define SEO variables. Go to /app/Config/boostrap.php to edit -->
+<?php $siteName = (Configure::read('site.name')); ?>
+
+<?php $this->set("title_for_layout","About - $siteName"); ?>
 
 <div class='centered'><h1 style="margin-bottom: 20px;">About</h1></div>
 

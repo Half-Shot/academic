@@ -42,7 +42,7 @@
         </div>
 
       <footer style="margin-top: 20px; margin-bottom: 15px; text-align: center;">
-        <p><small><a href="<?php echo $this->Html->url('/posts/index.rss'); ?>">RSS</a> - Powered by <a href="http://academic-cms.github.com/">Academic</a></small></p>
+        <p><small><a href="<?php echo $this->Html->url('/posts/index.rss'); ?>">RSS</a> - Powered by <a href="http://academic-cms.github.com/">academic*</a></small></p>
       </footer>
       
      </div>

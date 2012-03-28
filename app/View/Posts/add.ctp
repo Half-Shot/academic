@@ -1,4 +1,5 @@
 <?php $this->layout = 'academic'; ?>
+<?php $this->set("title_for_layout","Add an article"); ?>
 
 <div class='centered'><h1 style="margin-bottom: 20px;">Publish an article</h1></div>
 
@@ -25,7 +26,7 @@ echo $this->Form->input('body',array(
 	'before' => '<span class = \'control-label\'>Content</span>'));
 	
 echo $this->Form->input('format', array(
-    'options' => array('standard' => 'Standard post', 'link' => 'Link post')));
+    'options' => array('standard' => 'Standard post', 'link' => 'Link post →', 'status' => '# Status post')));
 	
 echo ("<input type='submit' class='btn' value='Publish'>"); ?>
 

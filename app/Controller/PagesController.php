@@ -68,8 +68,11 @@ class PagesController extends AppController {
 		
 		//load Post model
 		$this->loadModel('Post');
+		$this->set('posts', $this->paginate('Post')); //End
 		
-		$this->set('posts', $this->paginate('Post'));
+		//load User model
+		$this->loadModel('User');
+		$this->set('users', $this->User->find('all')); //End
 		
 		$path = func_get_args();
 

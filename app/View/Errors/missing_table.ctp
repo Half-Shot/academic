@@ -12,10 +12,10 @@
 <div class="progress progress-striped
      active">
   <div class="bar"
-       style="width: 50%;"></div>
+       style="width: 66%;"></div>
 </div>
 
-<p style="margin-top: 35px; margin-bottom: 35px;">We now need to create the database tables that will be used by academic. Please login to your mysql database and run the following SQL requests :</p>
+<p style="margin-top: 35px; margin-bottom: 35px;">We now need to create the database tables that will be used by academic. Please login to your mysql database and run the following SQL request:</p>
 </div>
 
 <pre>
@@ -32,12 +32,10 @@ CREATE TABLE posts (
 INSERT INTO posts (title,body,created,format)
   VALUES ('A link article', 'This is a link article.', NOW(), 'link');
 INSERT INTO posts (title,body,created,format)
+  VALUES ('A status article', 'This is a status article.', NOW(), 'status');
+INSERT INTO posts (title,body,created,format)
   VALUES ('A standard article', 'This is a standard article.', NOW(), 'standard');
-</pre>
-		      
-<p>and :</p>
-		      
-<pre>
+
 /* Create the users table: */
 CREATE TABLE users (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -49,14 +47,20 @@ CREATE TABLE users (
 </pre>
 
 <div class="centered">
-<p style="margin-top: 40px;">When it's done click next</p>
+<p style="margin-top: 40px;">When it's done click finish.</p>
 
-<p><a href="javascript:this.location.reload();" class="btn btn-primary">Next</a></p>
+<p><a href="javascript:this.location.reload();" class="btn btn-primary">Finish</a></p>
 
 <p><small>Note: if it doesn't work, manually refresh the page.</small></p>
 
 </div>
 
+<hr>
+
 <div class="alert alert-info" style="margin-top: 30px;">
- <p><b>If you already installed academic</b>, you may be viewing this message because the tables of your database have been altered or deleted. For more information, please check the <a href="http://academic-cms.github.com/documentation.html">documentation</a></p>
+ <p><b>If you already installed academic</b>, you may be viewing this message because :
+ 	 <ul>
+ 	 	<li>the tables of your database have been altered or deleted</li>
+ 	 </ul> 
+ For more information, please check the <a href="http://academic-cms.github.com/documentation.html">documentation</a></p>
 </div>

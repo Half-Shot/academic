@@ -9,12 +9,6 @@ class User extends AppModel {
                 'message' => 'A username is required'
             )
         ),
-        'pseudo' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'A pseudo is required'
-            )
-        ),
         'password' => array(
             'required' => array(
                 'rule' => array('notEmpty'),

@@ -1,15 +1,8 @@
-<div class="users form">
-<?php echo $this->Form->create('User');?>
-    <fieldset>
-        <legend><?php echo __('Add and admin account'); ?></legend>
-    <?php
-        echo $this->Form->input('username');
-        echo $this->Form->input('pseudo');
-        echo $this->Form->input('password');
-        echo $this->Form->input('role', array(
-            'options' => array('admin' => 'Admin')
-        ));
-    ?>
-    </fieldset>
-<?php echo $this->Form->end(__('Submit'));?>
-</div>
+<?php $this->layout = 'academic'; ?>
+
+<?php
+if (!empty($users)) {
+	echo $this->element('users_already');
+} else {
+	echo $this->element('users_add');
+} ?>
