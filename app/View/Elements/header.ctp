@@ -20,7 +20,7 @@ if ($this->Session->check('Auth.User.id')) {
 <div class="centered">
 <!-- To edit your site description, go to /app/View/Elements/header.ctp -->
 <p style="font-size: 1.15em; color: #999999; margin-top: 30px; margin-bottom: 30px; font-weight: 300;">
-The minimalist blog CMS
+<?php echo(Configure::read('site.description')); ?>
 </p>
 </div>
 

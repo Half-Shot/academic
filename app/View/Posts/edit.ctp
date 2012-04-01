@@ -23,7 +23,7 @@ echo $this->Form->input('body',array(
 	'style' => 'width:490px', 'rows' => '15', 'before' => '<span class = \'control-label\'>Content</span>'));
 	
 echo $this->Form->input('format', array(
-    'options' => array('standard' => 'Standard post', 'link' => 'Link post →', 'status' => '# Status post')));
+    'options' => array('standard' => 'Standard post', 'link' => 'Link post →', 'status' => '# Status post', 'image' => 'Image post')));
     
 echo $this->Form->input('id', array('type' => 'hidden'));
 	

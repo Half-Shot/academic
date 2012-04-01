@@ -56,11 +56,11 @@
 
 <!-- 
 
-Powered by Academic 0.9
+Powered by Academic
 
 Download : <http://academic-cms.github.com/>
 
-Academic is Copyright (C) 2012 Jean Fau
+Academic is Copyright (c) 2012 Jean Fau
 
 "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away." - Antoine de Saint-Exupéry in Wind, Sand and Stars
 

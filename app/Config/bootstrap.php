@@ -6,6 +6,9 @@
 //Site name
 Configure::write('site.name', 'Academic blog');
 
+//Site description
+Configure::write('site.description', 'The minimalist blog CMS');
+
 //Site author
 Configure::write('site.author', 'Academic user');
 

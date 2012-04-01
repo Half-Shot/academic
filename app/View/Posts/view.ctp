@@ -19,7 +19,21 @@
 <p><i><small>Written <?php echo $post['Post']['created']?></small></i></p>
 </div>
 
-<?php echo Markdown(($post['Post']['body']))?>
+<?php $body = $post['Post']['body'] ?>
+
+<?php if (($post['Post']['format']) == 'image') {
+		echo ("
+		<ul class='thumbnails' style='margin-bottom:-20px'>
+		  <li>
+		    <div class='thumbnail'>
+		      <img src='$body' alt='' width='490'>
+		    </div>
+		   </li>
+		 </ul>
+		 ");
+	} else {
+		echo Markdown(($post['Post']['body']));
+	} ?>
 
 <?php 
 $editlink = $this->Html->link('Edit', array('action' => 'edit', $post['Post']['id'])); 

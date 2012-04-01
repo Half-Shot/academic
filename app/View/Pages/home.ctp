@@ -26,8 +26,11 @@ if (empty($users)) {
 
 <?php 
 $title = $this->Html->link($post['Post']['title'], array('controller' => 'posts', 'action' => 'view', $post['Post']['id']));
+$titleNoLink = $post['Post']['title'];
+$link = $this->Html->url(array('controller' => 'posts', 'action' => 'view', $post['Post']['id']));
 $created = $post['Post']['created'];
 $body = Markdown($post['Post']['body']);
+$bodyNoTag = strip_tags($body);
 ?>
 	
 <?php if (($post['Post']['format']) == 'standard') {
@@ -49,6 +52,17 @@ $body = Markdown($post['Post']['body']);
 		<div class='alert'>
 		<div style='padding-top:5px; padding-bottom:5px;'># $title</div>
 		</div>
+		");
+} else if (($post['Post']['format']) == 'image') {
+		echo ("
+		<ul class='thumbnails' style='margin-bottom:-20px'>
+		  <li>
+		    <div class='thumbnail'>
+		      <a href='$link'><img src='$bodyNoTag' alt='' width='490'></a>
+		      <h6 style='text-align:center;'>$titleNoLink</h6>
+		    </div>
+		  </li>
+		</ul>
 		");
 } ?>
 

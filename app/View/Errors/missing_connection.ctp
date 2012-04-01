@@ -16,7 +16,7 @@
        style="width: 33%;"></div>
 </div>
 
-<p style="margin-top: 40px;">First of all, you must edit via ftp the file<code>/app/Config.database.php</code> to enter your database info. When it's done click next.</p>
+<p style="margin-top: 40px;">First of all, you must edit via ftp the file<code>/app/Config/database.php</code> to enter your database info. When it's done click next.</p>
 
 <p><a href="javascript:this.location.reload();" class="btn btn-primary">Next</a></p>
 

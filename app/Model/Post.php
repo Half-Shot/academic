@@ -6,7 +6,7 @@ class Post extends AppModel {
         ),
         'format' => array(
             'valid' => array(
-                'rule' => array('inList', array('standard', 'link', 'status')),
+                'rule' => array('inList', array('standard', 'link', 'status', 'image')),
                 'message' => 'Please enter a valid format',
                 'allowEmpty' => false
             )

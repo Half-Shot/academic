@@ -26,7 +26,7 @@ echo $this->Form->input('body',array(
 	'before' => '<span class = \'control-label\'>Content</span>'));
 	
 echo $this->Form->input('format', array(
-    'options' => array('standard' => 'Standard post', 'link' => 'Link post →', 'status' => '# Status post')));
+    'options' => array('standard' => 'Standard post', 'link' => 'Link post →', 'status' => '# Status post', 'image' => 'Image post')));
 	
 echo ("<input type='submit' class='btn' value='Publish'>"); ?>
 
