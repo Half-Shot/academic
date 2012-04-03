@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title><?php echo $title_for_layout; ?></title>
     <meta name="author" content="<?php echo(Configure::read('site.author')); ?>">
-    <meta name="abstract" content="<?php echo(Configure::read('site.description')); ?>">
     <meta name="generator" content="academic*">
 
     <!-- Styles -->
