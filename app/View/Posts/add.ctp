@@ -18,9 +18,9 @@ echo $this->Form->create('Post', array(
 echo $this->Form->input('title',array(
 	'style' => 'width:490px', 
 	'before' => '<span class = \'control-label\'>Title</span>'));
-
+	
 echo $this->Form->input('body',array(
-	'style' => 'width:490px', 
+	'style' => 'width:490px;font-family: Menlo, Monaco, Courier New, monospace;',
 	'rows' => '15', 
 	'placeholder' => 'You can use HTML or Markdown syntax',
 	'before' => '<span class = \'control-label\'>Content</span>'));

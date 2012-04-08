@@ -12,6 +12,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> <?php echo $loggedusername ?><b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="<?php echo $this->Html->url('/posts/add/'); ?>"><i class="icon-pencil icon-black"></i> Publish</a></li>
+              <li><a href="<?php echo $this->Html->url('/posts.xml'); ?>"><i class="icon-list-alt icon-black"></i> Sitemap</a></li>
               <li><a href="<?php echo $this->Html->url('https://github.com/academic-cms/academic/wiki'); ?>"><i class="icon-info-sign icon-black"></i> Documentation</a></li>
               <li class="divider"></li>
               <li><a href="<?php echo $this->Html->url('/users/logout/'); ?>"><i class=" icon-off icon-black"></i> Logout</a></li>

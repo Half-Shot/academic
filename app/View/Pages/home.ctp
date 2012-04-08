@@ -2,9 +2,10 @@
 
 <?php 
 //Define SEO variables. Go to /app/Config/boostrap.php to edit
-$siteName = (Configure::read('site.name')); ?>
+$siteName = (Configure::read('site.name'));
+$siteDescription = (Configure::read('site.description')); ?>
 
-<?php $this->set("title_for_layout","$siteName"); ?>
+<?php $this->set("title_for_layout","$siteName - $siteDescription"); ?>
 
 <?php App::import('Vendor', 'markdown/markdown-extra'); ?>
 
@@ -29,6 +30,7 @@ $title = $this->Html->link($post['Post']['title'], array('controller' => 'posts'
 $titleNoLink = $post['Post']['title'];
 $link = $this->Html->url(array('controller' => 'posts', 'action' => 'view', $post['Post']['id']));
 $created = $post['Post']['created'];
+$author = Configure::read('site.author');
 $body = Markdown($post['Post']['body']);
 $bodyNoTag = strip_tags($body);
 ?>
@@ -36,14 +38,14 @@ $bodyNoTag = strip_tags($body);
 <?php if (($post['Post']['format']) == 'standard') {
 		echo ("
 		<div class='centered'><h2>$title</h2>
-		<p><i><small>Written $created</small></i></p>
+		<p><i><small>Written $created, by $author</small></i></p>
 		</div>
 		$body
 		");
 } else if (($post['Post']['format']) == 'link') {
 		echo ("
 		<div class='centered'><h2>$title →</h2>
-		<p><i><small>Written $created</small></i></p>
+		<p><i><small>Written $created, by $author</small></i></p>
 		</div>
 		$body
 		");

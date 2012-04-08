@@ -13,10 +13,10 @@
 <h2><?php if (($post['Post']['format']) == 'status') {
 	echo ("# ");
 } ?>
-<?php echo h($post['Post']['title'])?> <?php if(($post['Post']['format']) == 'link') {
+<?php echo $post['Post']['title'] ?> <?php if(($post['Post']['format']) == 'link') {
 	echo ("→");
 } ?></h2>
-<p><i><small>Written <?php echo $post['Post']['created']?></small></i></p>
+<p><i><small>Written <?php echo $post['Post']['created']?>, by <?php echo Configure::read('site.author') ?></small></i></p>
 </div>
 
 <?php $body = $post['Post']['body'] ?>

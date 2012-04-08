@@ -2,6 +2,9 @@
 /**
  * SEO Configuration 
  */
+ 
+//Site localisation
+Configure::write('Config.language', 'eng'); //fre
 
 //Site name
 Configure::write('site.name', 'Academic blog');

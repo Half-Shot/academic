@@ -12,3 +12,5 @@
 
 <?php echo $this->element('legal'); ?>
 
+<p><qrcode value="<?php echo Router::url($this->here, true); ?>" ec="L" style="width: 35mm; background-color: white; color: black;"></qrcode></p>
+
