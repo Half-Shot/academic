@@ -23,8 +23,10 @@
   </head>
 
     <?php 
-    if ($this->Session->check('Auth.User.id')) {
-    	echo $this->element('topbar');
+    if ('admin' == $this->Session->read('Auth.User.role')) {
+    	echo $this->element('navbar_admin');
+    } elseif ($this->Session->check('Auth.User.id')) {
+    	echo $this->element('navbar_author');
     } else {
     	echo('<body>');
     }

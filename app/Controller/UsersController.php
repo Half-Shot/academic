@@ -1,6 +1,22 @@
 <?php
-// app/Controller/UsersController.php
 class UsersController extends AppController {
+
+public $helpers = array('Paginator');
+public $components = array(
+    'Auth' => array(
+        'authenticate' => array(
+            'Form' => array(
+                'fields' => array('username' => 'email')
+            )
+        )
+    )
+);
+var $paginate = array(
+    'limit' => 15,
+    'order' => array(
+         'User.id' => 'asc'
+     )
+);
 	
 	public function login() {
 	    if ($this->Auth->login()) {
@@ -25,6 +41,10 @@ class UsersController extends AppController {
     }
 
     public function view($id = null) {
+    	// Load Post model to display individual posts
+    	$this->loadModel('Post');
+    	$posts = $this->set('posts', $this->Post->find('all', array('limit' => '15', 'order' => 'Post.created DESC', 'conditions' => array('Post.ownerid' => $id))));
+    	//
         $this->User->id = $id;
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
@@ -33,7 +53,7 @@ class UsersController extends AppController {
     }
 
     public function add() {
-    	$this->set('users', $this->User->find('all')); //used to hide add form in /view/Users/add.ctp add.php if there is already an admin account registered
+    	$this->set('users', $this->User->find('all')); //used to check if an admin account is registred
         if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
@@ -43,6 +63,20 @@ class UsersController extends AppController {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
         }
+    }
+    
+    public function isAuthorized($user) {
+            if (parent::isAuthorized($user)) {
+                return true;
+            }
+           
+            if ($this->action === 'edit') {
+                if ($this->Auth->user('id') == $this->request->params['pass'][0]) {
+                 return true;
+                }
+            }
+       
+            return false;
     }
 
     public function edit($id = null) {
@@ -54,6 +88,7 @@ class UsersController extends AppController {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
                 $this->redirect(array('action' => 'index'));
+                //$this->redirect($this->Auth->logout());
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }

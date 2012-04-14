@@ -25,25 +25,47 @@ CREATE TABLE posts (
   title VARCHAR(50),
   body TEXT,
   created DATETIME DEFAULT NULL,
-  format VARCHAR(20) DEFAULT NULL
+  format VARCHAR(20) DEFAULT NULL,
+  ownerid INT
 );
 
 /* Insert two default publications: */
-INSERT INTO posts (title,body,created,format)
-  VALUES ('A link article', 'This is a link article.', NOW(), 'link');
-INSERT INTO posts (title,body,created,format)
-  VALUES ('A status article', 'This is a status article.', NOW(), 'status');
-INSERT INTO posts (title,body,created,format)
-  VALUES ('A standard article', 'This is a standard article.', NOW(), 'standard');
+INSERT INTO posts (title,body,created,format,ownerid)
+  VALUES ('An image article', 'http://placehold.it/500x300.', NOW(), 'image', '1');
+INSERT INTO posts (title,body,created,format,ownerid)
+  VALUES ('A link article', 'This is a link article.', NOW(), 'link', '1');
+INSERT INTO posts (title,body,created,format,ownerid)
+  VALUES ('A status article', 'This is a status article.', NOW(), 'status', '1');
+INSERT INTO posts (title,body,created,format,ownerid)
+  VALUES ('A standard article', 'This is a standard article.', NOW(), 'standard', '1');
 
 /* Create the users table: */
 CREATE TABLE users (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(50),
+  email VARCHAR(150),
+  pseudo VARCHAR(250),
   password VARCHAR(50),
   role VARCHAR(20),
+  userbio TEXT,
   created DATETIME DEFAULT NULL
 );
+  
+/* Create the settings table: */
+CREATE TABLE settings (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(150),
+  value VARCHAR(300)
+);
+
+/* Insert settings values: */
+INSERT INTO settings (name,value)
+  VALUES ('Site.name', 'Academic blog');
+INSERT INTO settings (name,value)
+  VALUES ('Site.description', 'The minimalist blog CMS');
+INSERT INTO settings (name,value)
+  VALUES ('Site.email', 'site@email.com');
+INSERT INTO settings (name,value)
+  VALUES ('Google.analytics', 'Your UA');
 </pre>
 
 <div class="centered">
@@ -62,5 +84,5 @@ CREATE TABLE users (
  	 <ul>
  	 	<li>the tables of your database have been altered or deleted</li>
  	 </ul> 
- For more information, please check the <a href="http://academic-cms.github.com/documentation.html">documentation</a></p>
+ For more information, please check the <a href="https://github.com/academic-cms/academic/wiki">documentation</a></p>
 </div>

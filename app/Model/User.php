@@ -3,10 +3,24 @@ class User extends AppModel {
     public $name = 'User';
     
     public $validate = array(
-        'username' => array(
+        'email' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'A username is required'
+                'message' => 'An email is required.',
+              ),
+            'isunique' => array(
+            	'rule' => array('isUnique'),
+            	'message' => 'This email is already used.',
+              ),
+              'email' => array(
+              'rule' => array('email', true),
+              'message' => 'This email is not valid.',
+              ),
+        ),
+        'pseudo' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'A pseudo is required'
             )
         ),
         'password' => array(
@@ -15,9 +29,15 @@ class User extends AppModel {
                 'message' => 'A password is required'
             )
         ),
+        'userbio' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'A description is required'
+            )
+        ),
         'role' => array(
             'valid' => array(
-                'rule' => array('inList', array('admin')),
+                'rule' => array('inList', array('admin','author','follower')),
                 'message' => 'Please enter a valid role',
                 'allowEmpty' => false
             )

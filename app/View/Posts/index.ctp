@@ -1,7 +1,7 @@
 <?php $this->layout = 'academic'; ?>
 
 <!-- Define SEO variables. Go to /app/Config/boostrap.php to edit -->
-<?php $siteName = (Configure::read('site.name')); ?>
+<?php $siteName = (Configure::read('Site.name')); ?>
 
 <?php $this->set("title_for_layout","Publication archives - $siteName"); ?>
 
@@ -13,11 +13,9 @@
 		        <th>Published</th>
 		        <?php 
 		        if ('admin' == $this->Session->read('Auth.User.role')) {
-		        	echo ("
-		        
-		        <th>Admin.</th>
-		        
-		        ");
+		        	echo ("<th>Admin.</th>");
+		        } elseif ($this->Session->check('Auth.User.id')) {
+		        	echo("<th>Admin.</th>");
 		        } ?>
 		    </tr>
 		
@@ -44,13 +42,12 @@
 		            <?php echo $post['Post']['created']; ?>
 		        </td>
 		        <?php if ('admin' == $this->Session->read('Auth.User.role')) {
-		        	echo ("
-		        	
-		        <td>$editlink / $deletelink</td>
-		        
-		        ");
-		        } ?>
-
+		        		echo ("<td>$editlink / $deletelink</td>");
+		        	} elseif ($post['Post']['ownerid'] == $this->Session->read('Auth.User.id')) {
+		        		echo("<td>$editlink / $deletelink</td>");
+		        	} elseif ($this->Session->check('Auth.User.id')) {
+		        		echo("<td><span class='muted'>Not owned</span></td>");
+		        	} ?>
 		    </tr>
 		    <?php endforeach; ?>
 		

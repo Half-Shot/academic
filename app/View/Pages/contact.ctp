@@ -1,7 +1,10 @@
 <?php $this->layout = 'academic'; ?>
 
 <!-- Define SEO variables. Go to /app/Config/boostrap.php to edit -->
-<?php $siteName = (Configure::read('site.name')); ?>
+<?php 
+ $siteName = (Configure::read('Site.name'));
+ $siteEmail = (Configure::read('Site.email'));
+ ?>
 
 <?php $this->set("title_for_layout","Contact - $siteName"); ?>
 
@@ -12,7 +15,7 @@
     795 Folsom Ave, Suite 600<br>
     San Francisco, CA 94107<br>
     <abbr title="Phone">P:</abbr> (123) 456-7890<br>
-    <a href="mailto:#">first.last@gmail.com</a>
+    <a href="mailto:#"><?php echo $siteEmail ?></a>
 </address>
 
 <?php 

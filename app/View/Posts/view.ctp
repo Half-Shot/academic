@@ -1,7 +1,7 @@
 <?php $this->layout = 'academic'; ?>
 
 <!-- Define SEO variables. Go to /app/Config/boostrap.php to edit -->
-<?php $siteName = (Configure::read('site.name')); ?>
+<?php $siteName = (Configure::read('Site.name')); ?>
 
 <!-- Define post name -->
 <?php $postName = ($post['Post']['title']); ?>
@@ -16,7 +16,7 @@
 <?php echo $post['Post']['title'] ?> <?php if(($post['Post']['format']) == 'link') {
 	echo ("→");
 } ?></h2>
-<p><i><small>Written <?php echo $post['Post']['created']?>, by <?php echo Configure::read('site.author') ?></small></i></p>
+<p><i><small>Written <?php echo $post['Post']['created'] ?></small></i></p>
 </div>
 
 <?php $body = $post['Post']['body'] ?>
@@ -35,17 +35,13 @@
 		echo Markdown(($post['Post']['body']));
 	} ?>
 
-<?php 
-$editlink = $this->Html->link('Edit', array('action' => 'edit', $post['Post']['id'])); 
- ?>
-
 <hr>
 
-<p style="text-align: center; color: #999999;"><i class="icon-download-alt"></i> <?php echo $this->Html->link('Download as PDF', array('action'=>'view', 'ext'=>'pdf', $post['Post']['id'])); ?> - <a href="http://twitter.com/?status=<?php echo Router::url($this->here, true); ?>"><i class="icon-retweet"></i> Tweet this</a> <?php 
-if ('admin' == $this->Session->read('Auth.User.role')) {
-	echo ("- <i class='icon-edit'></i> $editlink");
-} ?> </p>
+<p style="text-align: center; color: #999999;"><i class="icon-user"></i> <?php echo $this->Html->link('About author', array('controller' => 'users','action'=>'view', $post['Post']['ownerid'])); ?> - <i class="icon-download-alt"></i> <?php echo $this->Html->link('Download PDF', array('action'=>'view', 'ext'=>'pdf', $post['Post']['id'])); ?> - <a href="http://www.addthis.com/bookmark.php?v=250&amp;pubid=xa-4f8947e47c1964dd"><i class="icon-retweet"></i> Share</a></p>
+<p>
 
 <?php echo $this->element('legal'); ?>
 
 <?php echo $this->element('comments'); ?>
+
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f8947e47c1964dd"></script>

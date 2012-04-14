@@ -1,7 +1,7 @@
 <?php $this->layout = 'academic'; ?>
 
 <!-- Define SEO variables. Go to /app/Config/boostrap.php to edit -->
-<?php $siteName = (Configure::read('site.name')); ?>
+<?php $siteName = (Configure::read('Site.name')); ?>
 
 <?php $this->set("title_for_layout","Links - $siteName"); ?>
 

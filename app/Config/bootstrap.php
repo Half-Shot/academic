@@ -1,20 +1,4 @@
 <?php
-/**
- * SEO Configuration 
- */
- 
-//Site localisation
-Configure::write('Config.language', 'eng'); //fre
-
-//Site name
-Configure::write('site.name', 'Academic blog');
-
-//Site description
-Configure::write('site.description', 'The minimalist blog CMS');
-
-//Site author
-Configure::write('site.author', 'Academic user');
-
 
 /**
  * This file is loaded automatically by the app/webroot/index.php file after core.php

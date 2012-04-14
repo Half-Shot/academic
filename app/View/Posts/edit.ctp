@@ -20,7 +20,9 @@ echo $this->Form->input('title',array(
 	'style' => 'width:490px', 'before' => '<span class = \'control-label\'>Title</span>'));
 
 echo $this->Form->input('body',array(
-	'style' => 'width:490px', 'rows' => '15', 'before' => '<span class = \'control-label\'>Content</span>'));
+	'style' => 'width:490px;font-family: Menlo, Monaco, Courier New, monospace;',
+	'rows' => '20',
+	'before' => '<span class = \'control-label\'>Content</span>'));
 	
 echo $this->Form->input('format', array(
     'options' => array('standard' => 'Standard post', 'link' => 'Link post →', 'status' => '# Status post', 'image' => 'Image post')));

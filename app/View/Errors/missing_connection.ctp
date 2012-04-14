@@ -31,7 +31,7 @@
 	 <ul>
 	 	<li>your database is temporarily inaccessible</li>
 	 	<li>your database server is down</li>
-	 	<li>you have edited /app/Config.database.php</li>
+	 	<li>you have edited /app/Config/database.php</li>
 	 </ul>
- For more information, please check <a href="http://academic-cms.github.com/documentation.html">the documentation.</a></p>
+ For more information, please check <a href="https://github.com/academic-cms/academic/wiki">the documentation.</a></p>
 </div>

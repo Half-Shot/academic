@@ -16,9 +16,9 @@ echo $this->Form->create('User', array(
 	    'error' => array('attributes' => array('wrap' => 'div', 'class' => 'alert alert-error'))
 ) ));
 
-echo $this->Form->input('username',array(
+echo $this->Form->input('email',array(
 	'style' => 'width:200px', 
-	'before' => '<span class = \'control-label\'>Username</span>'));
+	'before' => '<span class = \'control-label\'>Email</span>'));
 
 echo $this->Form->input('password',array(
 	'style' => 'width:200px',

@@ -37,13 +37,29 @@ public $components = array(
         'Session',
         'Auth' => array(
             'loginRedirect' => array('controller' => 'posts', 'action' => 'index'),
-            'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')
+            'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
+            'authorize' => array('Controller')
         )
     );
+    
+    public function isAuthorized($user) {
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return true; //Admin can access every action
+        }
+        return false; // The rest don't
+    }
 
     public function beforeFilter() {
-        $this->Auth->allow('index', 'view');
-        $this->Auth->allow('display');
+        $this->Auth->allow('index', 'view', 'display');
+        $this->getSettings();
+    }
+    
+    public function getSettings(){
+       $this->loadModel('Setting');
+       $settings = $this->Setting->find('all');
+       foreach($settings as $setting){
+          Configure::write($setting['Setting']['name'], $setting['Setting']['value']);
+       }
     }
 
 }

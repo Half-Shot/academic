@@ -10,6 +10,23 @@ class PostsController extends AppController {
          )
     );
     
+    public function isAuthorized($user) {
+        if (parent::isAuthorized($user)) {
+            return true;
+        }
+    
+        if ($this->action === 'add') {
+           // All registered members can add posts
+            return true;
+        }
+        if (in_array($this->action, array('edit', 'delete'))) {
+            $postId = $this->request->params['pass'][0];
+            return $this->Post->isOwnedBy($postId, $user['id']);
+        }
+    
+        return false;
+    }
+    
     public function index() {
         if ($this->RequestHandler->isRss() ) {
             $posts = $this->Post->find('all', array('limit' => 20, 'order' => 'Post.created DESC'));
@@ -28,6 +45,7 @@ class PostsController extends AppController {
 
     public function add() {
         if ($this->request->is('post')) {
+        	$this->request->data['Post']['ownerid'] = $this->Auth->user('id'); //stores owner id
             if ($this->Post->save($this->request->data)) {
                 $this->Session->setFlash('Your post has been saved.');
                 $this->redirect(array('action' => 'index'));
