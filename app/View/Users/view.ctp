@@ -12,8 +12,8 @@
 
 <table class="table table-striped">
 <tr>
-    <td><img src="http://www.gravatar.com/avatar/<?php echo $gravatar ?>?s=50" width='50' height='50'></td>
-    <td style="text-align: justify;"><?php echo $user['User']['userbio']; ?></td>
+    <td style="width: 50px;"><img src="http://www.gravatar.com/avatar/<?php echo $gravatar ?>?s=50" width='50' height='50'></td>
+    <td style="text-align: justify;"><?php echo Markdown($user['User']['userbio']) ?></td>
 </tr>
 </table>
 

@@ -1,7 +1,12 @@
 <?php
 class ContactsController extends AppController {
  	
-    function send() {
+ 	public function beforeFilter() {
+ 	    parent::beforeFilter();
+ 	    $this->Auth->allow('send');
+ 	}
+ 	
+    public function send() {
         if(!empty($this->data)) {
             $this->Contact->set($this->data);
             if($this->Contact->validates()) {

@@ -43,5 +43,5 @@
 
 <?php 
 if ($this->Session->check('Auth.User.id')) {
-	echo ("<div class='centered' style='margin-top:30px;'><p>To edit this page, go to <code>/app/View/Pages/links.ctp</code></p></div>");
+	echo ("<div class='centered' style='margin-top:30px;'><p><p><i class='icon-info-sign'></i> To edit this page, go to <code>/app/View/Pages/links.ctp</code></p></div>");
 } ?>
