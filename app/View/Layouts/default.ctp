@@ -35,18 +35,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-	
-	<!-- TinyMCE -->
-	<script src="<?php echo $this->Html->url('/js/tiny_mce/tiny_mce.js'); ?>"></script>
-	<script type="text/javascript">
-		tinyMCE.init({
-			mode : "textareas",
-			theme : "advanced"
-		});
-	</script>
-	<!-- /TinyMCE -->
-	
 </head>
+
 <body>
 	<div id="container">
 		<div id="header">
