@@ -7,14 +7,6 @@
 <a href="<?php echo $this->Html->url('/contacts/'); ?>">Contact</a> • 
 <a href="<?php echo $this->Html->url('/posts/'); ?>">Archives</a> • 
 <a href="<?php echo $this->Html->url('/pages/links/'); ?>">Links</a>
-<?php 
-$login = $this->Html->url('/users/login/');
-if ($this->Session->check('Auth.User.id')) {
-	echo ("");
-} else {
-	echo (" • <a href='$login'>Login</a>");
-}
- ?>
 </h4>
 </div>
 

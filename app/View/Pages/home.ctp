@@ -49,7 +49,7 @@ $bodyNoTag = strip_tags($body);
 } else if (($post['Post']['format']) == 'status') {
 		echo ("
 		<div class='alert'>
-		<div style='padding-top:5px; padding-bottom:5px;'># $title</div>
+		<div class='centered' style='padding-top:5px; padding-bottom:5px;'># $title</div>
 		</div>
 		");
 } else if (($post['Post']['format']) == 'image') {
@@ -58,7 +58,7 @@ $bodyNoTag = strip_tags($body);
 		  <li>
 		    <div class='thumbnail'>
 		      <a href='$link'><img src='$bodyNoTag' alt='' width='490'></a>
-		      <h6 style='text-align:center;'>$titleNoLink</h6>
+		      <h6 style='text-align:center; margin-top:5px;'>$titleNoLink</h6>
 		    </div>
 		  </li>
 		</ul>

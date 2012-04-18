@@ -31,7 +31,7 @@
             	echo ("→");
             } ?>
         </td>
-        <td>
+        <td style="width: 135px;">
             <?php echo $post['Post']['created']; ?>
         </td>
     </tr>

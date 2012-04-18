@@ -10,12 +10,12 @@
 		<table class="table table-striped">
 		    <tr>
 		        <th>Title</th>
-		        <th>Published</th>
+		        <th style="width: 135px;">Published</th>
 		        <?php 
 		        if ('admin' == $this->Session->read('Auth.User.role')) {
-		        	echo ("<th>Admin.</th>");
+		        	echo ("<th style='width:80px'>Admin.</th>");
 		        } elseif ($this->Session->check('Auth.User.id')) {
-		        	echo("<th>Admin.</th>");
+		        	echo ("<th style='width:80px'>Admin.</th>");
 		        } ?>
 		    </tr>
 		

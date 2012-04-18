@@ -74,7 +74,7 @@ class PostsController extends AppController {
             throw new MethodNotAllowedException();
         }
         if ($this->Post->delete($id)) {
-            $this->Session->setFlash('The post with id#' . $id . ' has been deleted.');
+            $this->Session->setFlash('The post with id #' . $id . ' has been deleted.');
             $this->redirect(array('action' => 'index'));
         }
     }
