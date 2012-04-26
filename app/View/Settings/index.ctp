@@ -54,7 +54,7 @@
 		    
 		</table>
 		
-		<h2>Site mode</h2>
+		<h2>Mode</h2>
 		
 		<p>
 			<?php  
@@ -69,6 +69,30 @@
 					endif;
 			?>
 		</p>
+		
+		<h2>Security</h2>
+		
+		<?php 
+		if ((Configure::read('Security.salt')) != '123aCaDeMiC456aCaDeMiC789'):
+			echo "<div class='alert alert-success'>";
+					echo ('<em>Security.cipherSeed</em> key set to '.Configure::read('Security.salt'));
+				echo '</div>';
+			else:
+				echo "<div class='alert alert-error'>";
+					echo ("<em>Security.salt</em> key in APP/Config/core.php was not changed.");
+				echo '</div>';
+			endif;
+		
+		if ((Configure::read('Security.cipherSeed')) != '12345678901234567890'):
+			echo "<div class='alert alert-success'>";
+					echo ('<em>Security.cipherSeed</em> key set to '.Configure::read('Security.cipherSeed'));
+				echo '</div>';
+			else:
+				echo "<div class='alert alert-error'>";
+					echo ("<em>Security.cipherSeed</em> key in APP/Config/core.php was not changed.");
+				echo '</div>';
+			endif;
+		?>
 		
 		<h2>Server check</h2>
 		

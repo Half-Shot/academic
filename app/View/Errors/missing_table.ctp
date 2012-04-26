@@ -23,7 +23,7 @@ CREATE TABLE posts (
 
 /* Insert a publication: */
 INSERT INTO posts (title,body,created,format,user_id)
-  VALUES ('A standard article', 'This is a standard article.', NOW(), 'standard', '1');
+  VALUES ('Welcome to academic*', "You can edit or delete this publication by creating an administrator account &lt;a href='/users/add/'&gt;here&lt;/a&gt;.", NOW(), 'standard', '1');
   
 /* Create the pages table: */
 CREATE TABLE pages (
@@ -35,7 +35,7 @@ CREATE TABLE pages (
 
 /* Insert two pages: */
 INSERT INTO pages (title,body,created)
-  VALUES ('About', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a dui metus, vitae auctor dolor. Fusce leo turpis, sagittis sed dignissim id, rhoncus ac diam. Nam suscipit rutrum venenatis. Donec mi urna, pharetra eget cursus ut, interdum in risus. Phasellus facilisis tincidunt neque, at aliquam neque vestibulum non.', NOW());
+  VALUES ('About', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a dui metus, vitae auctor dolor. Fusce leo turpis, sagittis sed dignissim id, rhoncus ac diam. Nam suscipit rutrum venenatis. Donec mi urna, pharetra eget cursus ut, interdum in risus.', NOW());
 INSERT INTO pages (title,body,created)
   VALUES ('Links', '###Link category
   * [Link1](#)

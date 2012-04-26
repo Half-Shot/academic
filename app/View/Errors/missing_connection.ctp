@@ -53,11 +53,37 @@
 
 <hr>
 
-<h3>Manual config</h3>
+<h3>Security</h3>
 
-<p style="margin-top: 20px;">First of all, you must edit <code>/app/Config/core.php</code> and change the value of <em>Security.salt</em> key (line 187) and <em>Security.cipherSeed</em> key (line 192).</p>
+<p>
+<?php 
+if ((Configure::read('Security.salt')) != '123aCaDeMiC456aCaDeMiC789'):
+	echo "<div class='alert alert-success'>";
+			echo ('<em>Security.cipherSeed</em> key set to '.Configure::read('Security.salt'));
+		echo '</div>';
+	else:
+		echo "<div class='alert alert-error'>";
+			echo ("Please edit your <em>Security.salt</em> key in APP/Config/core.php and refresh this page.");
+		echo '</div>';
+	endif;
 
-<p style="margin-top: 20px;">Then, you must edit via ftp the file<code>/app/Config/database.php</code> to enter your database info. When it's done click next.</p>
+if ((Configure::read('Security.cipherSeed')) != '12345678901234567890'):
+	echo "<div class='alert alert-success'>";
+			echo ('<em>Security.cipherSeed</em> key set to '.Configure::read('Security.cipherSeed'));
+		echo '</div>';
+	else:
+		echo "<div class='alert alert-error'>";
+			echo ("Please edit your <em>Security.cipherSeed</em> key in APP/Config/core.php and refresh this page.");
+		echo '</div>';
+	endif;
+?>
+</p>
+
+<hr>
+
+<h3>Database configuration</h3>
+
+<p style="margin-top: 20px;">Edit via ftp the file <code>/app/Config/database.php</code> to enter your database info. When it's done click next.</p>
 
 <hr>
 

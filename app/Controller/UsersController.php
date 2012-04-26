@@ -59,7 +59,7 @@ var $paginate = array(
             	$email->from(array(Configure::read('Site.email') => 'academic*'));
             	$email->to($this->data['User']['email']);
             	$email->subject('Your account');
-            	$email->send('Your account have been created successfully. Please go to '.$siteroot.'/users/add/ to create an admin account. You can loginby going to '.$siteroot.'/users/login/');
+            	$email->send('Your account have been created successfully. Please go to '.$siteroot.'users/login/ to login.');
                 $this->Session->setFlash(__('The user has been saved'));
                 $this->redirect(array('controller' => 'posts', 'action' => 'index'));
             } else {
