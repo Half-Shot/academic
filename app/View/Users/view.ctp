@@ -16,25 +16,3 @@
     <td style="text-align: justify;"><?php echo Markdown($user['User']['userbio']) ?></td>
 </tr>
 </table>
-
-<h3>Latest 15 publications</h3>
-
-<table class="table table-striped">
-
-    <?php foreach ($posts as $post): ?>
-    		    
-    <tr>
-        <td>
-            <?php if (($post['Post']['format']) == 'status') {
-            	echo ("#");
-            }; ?> <?php echo $this->Html->link($post['Post']['title'], array('controller' => 'posts','action' => 'view', $post['Post']['id']));?> <?php if(($post['Post']['format']) == 'link') {
-            	echo ("→");
-            } ?>
-        </td>
-        <td style="width: 135px;">
-            <?php echo $post['Post']['created']; ?>
-        </td>
-    </tr>
-    <?php endforeach; ?>
-		
-</table>

@@ -1,60 +1,67 @@
 <?php $this->layout = 'academic'; ?>
 
-<!-- Define SEO variables. Go to /app/Config/boostrap.php to edit -->
-<?php $siteName = (Configure::read('Site.name')); ?>
+<?php
+$siteName = (Configure::read('Site.name'));
+$siteDescription = (Configure::read('Site.description')); ?>
 
-<?php $this->set("title_for_layout","Publication archives - $siteName"); ?>
+<?php $this->set("title_for_layout","$siteName - $siteDescription"); ?>
 
-		<div class='centered'><h1 style="margin-bottom: 20px;">Archives</h1></div>
-		
-		<table class="table table-striped">
-		    <tr>
-		        <th>Title</th>
-		        <th style="width: 135px;">Published</th>
-		        <?php 
-		        if ('admin' == $this->Session->read('Auth.User.role')) {
-		        	echo ("<th style='width:80px'>Admin.</th>");
-		        } elseif ($this->Session->check('Auth.User.id')) {
-		        	echo ("<th style='width:80px'>Admin.</th>");
-		        } ?>
-		    </tr>
-		
-		<!-- Here's where we loop through our $posts array, printing out post info -->
-		
-		    <?php foreach ($posts as $post): ?>
-		    <?php 
-		    $editlink = $this->Html->link('Edit', array('action' => 'edit', $post['Post']['id'])); 
-		    $deletelink = $this->Form->postLink(
-		        'Delete',
-		        array('action' => 'delete', $post['Post']['id']),
-		        array('confirm' => 'Are you sure you want to delete this publication?'));     
-		    ?>
-		    
-		    <tr>
-		        <td>
-		            <?php if (($post['Post']['format']) == 'status') {
-		            	echo ("#");
-		            }; ?> <?php echo $this->Html->link($post['Post']['title'], array('action' => 'view', $post['Post']['id']));?> <?php if(($post['Post']['format']) == 'link') {
-		            	echo ("→");
-		            } ?>
-		        </td>
-		        <td>
-		            <?php echo $post['Post']['created']; ?>
-		        </td>
-		        <?php if ('admin' == $this->Session->read('Auth.User.role')) {
-		        		echo ("<td>$editlink / $deletelink</td>");
-		        	} elseif ($post['Post']['ownerid'] == $this->Session->read('Auth.User.id')) {
-		        		echo("<td>$editlink / $deletelink</td>");
-		        	} elseif ($this->Session->check('Auth.User.id')) {
-		        		echo("<td><span class='muted'>Not owned</span></td>");
-		        	} ?>
-		    </tr>
-		    <?php endforeach; ?>
-		
-		</table>
-		
-		<div class='centered'>
-		<?php echo $this->Paginator->prev(); ?> 
-		<?php echo $this->Paginator->numbers(); ?> 
-		<?php echo $this->Paginator->next(); ?>
-		</div>
+<?php App::import('Vendor', 'markdown/markdown-extra'); ?>
+
+<?php foreach ($posts as $post): ?>
+
+<?php 
+$title = $this->Html->link($post['Post']['title'], array('controller' => 'posts', 'action' => 'view', $post['Post']['id']));
+$titleNoLink = $post['Post']['title'];
+$articleLink = $this->Html->url(array('controller' => 'posts', 'action' => 'view', $post['Post']['id']));
+$created = $post['Post']['created'];
+$author =  $post['User']['pseudo'];
+$authorLink = $this->Html->url(array('controller' => 'users', 'action' => 'view', $post['Post']['user_id']));
+$body = Markdown($post['Post']['body']);
+$bodyNoTag = strip_tags($body);
+?>
+	
+<?php if (($post['Post']['format']) == 'standard') {
+	echo ("
+	<div class='centered'><h2>$title</h2>
+	<p><i><small>Written $created by <a href ='$authorLink'>$author</a></small></i></p>
+	</div>
+	$body
+	");
+} else if (($post['Post']['format']) == 'link') {
+	echo ("
+	<div class='centered'><h2>$title →</h2>
+	<p><i><small>Written $created by <a href ='$authorLink'>$author</a></small></i></p>
+	</div>
+	$body
+	");
+} else if (($post['Post']['format']) == 'status') {
+	echo ("
+	<div class='alert'>
+	<div class='centered' style='padding-top:5px; padding-bottom:5px;'># $title</div>
+	</div>
+	");
+} else if (($post['Post']['format']) == 'image') {
+	echo ("
+	<ul class='thumbnails' style='margin-bottom:-20px'>
+	  <li>
+	    <div class='thumbnail'>
+	      <a href='$articleLink'><img src='$bodyNoTag' alt='' width='490'></a>
+	      <h6 style='text-align:center; margin-top:5px;'>$titleNoLink</h6>
+	    </div>
+	  </li>
+	</ul>
+	");
+} ?>
+
+<hr>
+
+<?php endforeach; ?>
+
+<div class='centered'>
+<?php echo $this->Paginator->prev(); ?> 
+<?php echo $this->Paginator->numbers(); ?> 
+<?php echo $this->Paginator->next(); ?>
+</div>
+
+<?php echo $this->element('legal'); ?>

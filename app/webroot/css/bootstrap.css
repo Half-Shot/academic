@@ -660,6 +660,22 @@ pre code {
 .badge-inverse:hover {
   background-color: #1a1a1a;
 }
+.cake-sql-log {
+	background: transparent;
+}
+.cake-sql-log th,
+.cake-sql-log td {
+	padding: 4px 8px;
+	text-align: left;
+	font-family: Monaco, Consolas, "Courier New", monospaced;
+	border-top: 1px solid #dddddd;
+	border-left: 1px solid #dddddd;
+}
+.cake-sql-log caption {
+	color: #333;
+	border-top: 1px solid #dddddd;
+	padding: 10px 0 10px 0;
+}
 table {
   max-width: 100%;
   border-collapse: collapse;

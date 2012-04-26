@@ -1,6 +1,12 @@
 <?php
+
+App::uses('CakeEmail', 'Network/Email');
+
 class User extends AppModel {
+
     public $name = 'User';
+    
+    public $hasMany = 'Post';
     
     public $validate = array(
         'email' => array(

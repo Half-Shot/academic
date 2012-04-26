@@ -37,7 +37,7 @@ public $components = array(
         'Session',
         'Auth' => array(
             'loginRedirect' => array('controller' => 'posts', 'action' => 'index'),
-            'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
+            'logoutRedirect' => array('controller' => 'posts', 'action' => 'index'),
             'authorize' => array('Controller')
         )
     );
@@ -50,7 +50,7 @@ public $components = array(
     }
 
     public function beforeFilter() {
-        $this->Auth->allow('index', 'view', 'display');
+        $this->Auth->allow('index', 'view', 'archives');
         $this->getSettings();
     }
     

@@ -4,7 +4,7 @@ class PostsController extends AppController {
     public $helpers = array('Html', 'Form', 'Paginator', 'Text');
     public $components = array('Session','RequestHandler');
     var $paginate = array(
-        'limit' => 15,
+        'limit' => 5,
         'order' => array(
         'Post.created' => 'desc'
          )
@@ -34,18 +34,25 @@ class PostsController extends AppController {
         }
 
         $this->set('posts', $this->paginate('Post'));
-        //$this->set('posts', $this->Post->find('all'));
+    }
+    
+    public function archives() {
+    	$this->paginate = array(
+    	        'limit' => 20
+    	    );
+    	$data = $this->paginate('Post');
+        $this->set('posts', $data);
+        //debug($this->Post->find('all'));
     }
 
     public function view($id) {
         $this->Post->id = $id;
         $this->set('post', $this->Post->read());
-
     }
 
     public function add() {
         if ($this->request->is('post')) {
-        	$this->request->data['Post']['ownerid'] = $this->Auth->user('id'); //stores owner id
+        	$this->request->data['Post']['user_id'] = $this->Auth->user('id'); //stores user id
             if ($this->Post->save($this->request->data)) {
                 $this->Session->setFlash('Your post has been saved.');
                 $this->redirect(array('action' => 'index'));

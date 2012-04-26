@@ -1,7 +1,7 @@
 <?php $this->layout = 'academic'; ?>
 
 <?php $siteName = (Configure::read('Site.name')); ?>
-<?php $this->set("title_for_layout","Contact us - $siteName"); ?>
+<?php $this->set("title_for_layout","Contact - $siteName"); ?>
 
 <div class='centered'><h1 style="margin-bottom: 20px;">Contact</h1></div>
 

@@ -1,8 +1,9 @@
 <?php App::import('Vendor', 'markdown/markdown-extra'); ?>
 
 <h1><?php echo h($post['Post']['title'])?></h1>
-<p>Written <?php echo $post['Post']['created']?></p>
-<p>Source : <?php echo Router::url($this->here, true); ?></p>
+<p>Written <?php echo $post['Post']['created']?> by <?php echo $post['User']['pseudo']?></p>
+<p>Source : <?php echo Configure::read('Site.name'); ?>, <?php echo Router::url('/',true); ?></p>
+<p>Download : <?php echo Router::url($this->here, true); ?></p>
 
 <hr>
 

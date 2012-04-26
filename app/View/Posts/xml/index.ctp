@@ -4,8 +4,18 @@
         <loc><?php echo Router::url('/',true); ?></loc> 
         <changefreq>daily</changefreq> 
         <priority>1.0</priority> 
-    </url> 
-     
+    </url>
+
+    <!-- Page list -->
+    <url> 
+        <loc><?php echo Router::url(array('controller'=>'pages','action'=>'view', '1')); ?></loc> 
+        <priority>0.5</priority> 
+    </url>
+    <url> 
+        <loc><?php echo Router::url(array('controller'=>'pages','action'=>'view', '2')); ?></loc> 
+        <priority>0.5</priority> 
+    </url>
+    
     <!-- Post list -->     
     <?php foreach ($posts as $post):?> 
     <url> 

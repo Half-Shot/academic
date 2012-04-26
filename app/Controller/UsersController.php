@@ -41,15 +41,12 @@ var $paginate = array(
     }
 
     public function view($id = null) {
-    	// Load Post model to display individual posts
-    	$this->loadModel('Post');
-    	$posts = $this->set('posts', $this->Post->find('all', array('limit' => '15', 'order' => 'Post.created DESC', 'conditions' => array('Post.ownerid' => $id))));
-    	//
         $this->User->id = $id;
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
         $this->set('user', $this->User->read(null, $id));
+        //debug($this->User->find('all'));
     }
 
     public function add() {
@@ -57,8 +54,14 @@ var $paginate = array(
         if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
+            	$siteroot = Router::url('/',true);
+            	$email = new CakeEmail();
+            	$email->from(array(Configure::read('Site.email') => 'academic*'));
+            	$email->to($this->data['User']['email']);
+            	$email->subject('Your account');
+            	$email->send('Your account have been created successfully. Please go to '.$siteroot.'/users/add/ to create an admin account. You can loginby going to '.$siteroot.'/users/login/');
                 $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('controller' => 'pages', 'action' => 'index'));
+                $this->redirect(array('controller' => 'posts', 'action' => 'index'));
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
@@ -87,8 +90,8 @@ var $paginate = array(
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'index'));
-                //$this->redirect($this->Auth->logout());
+                //$this->redirect(array('action' => 'index'));
+                $this->redirect($this->Auth->logout());
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }

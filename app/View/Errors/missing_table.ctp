@@ -1,19 +1,11 @@
 <?php $this->layout = 'academic'; ?>
 <?php $this->set("title_for_layout","Welcome to academic - Step 2"); ?>
 
-<div class='centered'><h1 style="margin-bottom: 20px;">Welcome to academic</h1>
+<div class='centered'><h1>Welcome to academic <small>(2/2)</small></h1>
+
 <p>We will guide you through the installation process.</p>
-</div>
 
 <hr>
-
-<div class="centered">
-<h3>Step 2</h3>
-<div class="progress progress-striped
-     active">
-  <div class="bar"
-       style="width: 66%;"></div>
-</div>
 
 <p style="margin-top: 35px; margin-bottom: 35px;">We now need to create the database tables that will be used by academic. Please login to your mysql database and run the following SQL request:</p>
 </div>
@@ -26,18 +18,29 @@ CREATE TABLE posts (
   body TEXT,
   created DATETIME DEFAULT NULL,
   format VARCHAR(20) DEFAULT NULL,
-  ownerid INT
+  user_id INT
 );
 
-/* Insert two default publications: */
-INSERT INTO posts (title,body,created,format,ownerid)
-  VALUES ('An image article', 'http://placehold.it/500x300.', NOW(), 'image', '1');
-INSERT INTO posts (title,body,created,format,ownerid)
-  VALUES ('A link article', 'This is a link article.', NOW(), 'link', '1');
-INSERT INTO posts (title,body,created,format,ownerid)
-  VALUES ('A status article', 'This is a status article.', NOW(), 'status', '1');
-INSERT INTO posts (title,body,created,format,ownerid)
+/* Insert a publication: */
+INSERT INTO posts (title,body,created,format,user_id)
   VALUES ('A standard article', 'This is a standard article.', NOW(), 'standard', '1');
+  
+/* Create the pages table: */
+CREATE TABLE pages (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(50),
+  body TEXT,
+  created DATETIME DEFAULT NULL
+);
+
+/* Insert two pages: */
+INSERT INTO pages (title,body,created)
+  VALUES ('About', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a dui metus, vitae auctor dolor. Fusce leo turpis, sagittis sed dignissim id, rhoncus ac diam. Nam suscipit rutrum venenatis. Donec mi urna, pharetra eget cursus ut, interdum in risus. Phasellus facilisis tincidunt neque, at aliquam neque vestibulum non.', NOW());
+INSERT INTO pages (title,body,created)
+  VALUES ('Links', '###Link category
+  * [Link1](#)
+  * [Link2](#)
+  * [Link3](#)', NOW());
 
 /* Create the users table: */
 CREATE TABLE users (
@@ -63,10 +66,14 @@ INSERT INTO settings (name,value)
 INSERT INTO settings (name,value)
   VALUES ('Site.description', 'The minimalist blog CMS');
 INSERT INTO settings (name,value)
-  VALUES ('Site.email', 'site@email.com');
+  VALUES ('Site.email', 'academic@yourdomain.com');
 INSERT INTO settings (name,value)
-  VALUES ('Google.analytics', 'Your UA');
+  VALUES ('Google.analytics', 'none');
+INSERT INTO settings (name,value)
+  VALUES ('Disqus.id', 'none');
 </pre>
+
+<hr>
 
 <div class="centered">
 <p style="margin-top: 40px;">When it's done click finish.</p>
@@ -75,14 +82,4 @@ INSERT INTO settings (name,value)
 
 <p><small>Note: if it doesn't work, manually refresh the page.</small></p>
 
-</div>
-
-<hr>
-
-<div class="alert alert-info" style="margin-top: 30px;">
- <p><b>If you already installed academic</b>, you may be viewing this message because :
- 	 <ul>
- 	 	<li>the tables of your database have been altered or deleted</li>
- 	 </ul> 
- For more information, please check the <a href="https://github.com/academic-cms/academic/wiki">documentation</a></p>
 </div>
