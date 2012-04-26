@@ -75,7 +75,7 @@
 		<?php 
 		if ((Configure::read('Security.salt')) != '123aCaDeMiC456aCaDeMiC789'):
 			echo "<div class='alert alert-success'>";
-					echo ('<em>Security.cipherSeed</em> key set to '.Configure::read('Security.salt'));
+					echo ('<em>Security.cipherSeed</em> key was changed.');
 				echo '</div>';
 			else:
 				echo "<div class='alert alert-error'>";
@@ -85,7 +85,7 @@
 		
 		if ((Configure::read('Security.cipherSeed')) != '12345678901234567890'):
 			echo "<div class='alert alert-success'>";
-					echo ('<em>Security.cipherSeed</em> key set to '.Configure::read('Security.cipherSeed'));
+					echo ('<em>Security.cipherSeed</em> key was changed.');
 				echo '</div>';
 			else:
 				echo "<div class='alert alert-error'>";
