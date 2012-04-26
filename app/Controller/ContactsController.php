@@ -16,7 +16,7 @@ class ContactsController extends AppController {
                 $email->subject('Contact');
                 $email->send($this->data['Contact']['message']);
                 $this->Session->setFlash('Your message has been sent.');
-                $this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
+                $this->redirect(array('controller' => 'posts', 'action' => 'index'));
             } else {
                 $this->render('index');
             }
