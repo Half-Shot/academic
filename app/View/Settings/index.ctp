@@ -75,7 +75,7 @@
 		<?php 
 		if ((Configure::read('Security.salt')) != '123aCaDeMiC456aCaDeMiC789'):
 			echo "<div class='alert alert-success'>";
-					echo ('<em>Security.cipherSeed</em> key was changed.');
+					echo ('<em>Security.salt</em> key was changed.');
 				echo '</div>';
 			else:
 				echo "<div class='alert alert-error'>";

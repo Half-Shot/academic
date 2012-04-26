@@ -59,7 +59,7 @@
 <?php 
 if ((Configure::read('Security.salt')) != '123aCaDeMiC456aCaDeMiC789'):
 	echo "<div class='alert alert-success'>";
-			echo ('<em>Security.cipherSeed</em> key set to '.Configure::read('Security.salt'));
+			echo ('<em>Security.salt</em> key set to '.Configure::read('Security.salt'));
 		echo '</div>';
 	else:
 		echo "<div class='alert alert-error'>";
