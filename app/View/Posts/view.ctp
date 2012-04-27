@@ -14,7 +14,7 @@
 <?php echo $post['Post']['title'] ?> <?php if(($post['Post']['format']) == 'link') {
 	echo ("→");
 } ?></h2>
-<p><i><small>Written <?php echo $post['Post']['created'] ?> by <a href="<?php echo $this->Html->url('/users/view/'.$post['Post']['user_id']); ?>"><?php echo $post['User']['pseudo'] ?></a></small></i></p>
+<p><i><small>Written <?php echo $post['Post']['created'] ?> by <?php echo $post['User']['pseudo'] ?></small></i></p>
 </div>
 
 <?php $body = $post['Post']['body'] ?>

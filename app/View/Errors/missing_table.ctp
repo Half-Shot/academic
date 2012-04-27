@@ -68,6 +68,8 @@ INSERT INTO settings (name,value)
 INSERT INTO settings (name,value)
   VALUES ('Site.email', 'academic@yourdomain.com');
 INSERT INTO settings (name,value)
+  VALUES ('Site.truncate', '850');
+INSERT INTO settings (name,value)
   VALUES ('Google.analytics', 'none');
 INSERT INTO settings (name,value)
   VALUES ('Disqus.id', 'none');

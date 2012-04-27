@@ -8,13 +8,13 @@
 		
 		<table class="table table-striped">
 		    <tr>
-		        <th>Title</th>
-		        <th style="width: 135px;">Published</th>
+		        <th><?php echo $this->Paginator->sort('title');?></th>
+		        <th style="width: 135px;"><?php echo $this->Paginator->sort('created');?></th>
 		        <?php 
 		        if ('admin' == $this->Session->read('Auth.User.role')) {
-		        	echo ("<th style='width:80px'>Admin.</th>");
+		        	echo ("<th style='width:40px'>Admin.</th>");
 		        } elseif ($this->Session->check('Auth.User.id')) {
-		        	echo ("<th style='width:80px'>Admin.</th>");
+		        	echo ("<th style='width:40px'>Admin.</th>");
 		        } ?>
 		    </tr>
 		
@@ -22,7 +22,7 @@
 		    <?php 
 		    $editlink = $this->Html->link('Edit', array('action' => 'edit', $post['Post']['id'])); 
 		    $deletelink = $this->Form->postLink(
-		        'Delete',
+		        "Delete",
 		        array('action' => 'delete', $post['Post']['id']),
 		        array('confirm' => 'Are you sure you want to delete this publication?'));     
 		    ?>
@@ -35,27 +35,46 @@
 		            	echo ("→");
 		            } ?>
 		        </td>
-		        <td>
-		            <?php echo $post['Post']['created']; ?>
-		        </td>
+		        <td><span class="muted"><?php echo $post['Post']['created']; ?></span></td>
 		        <?php if ('admin' == $this->Session->read('Auth.User.role')) {
-		        		echo ("<td>$editlink / $deletelink</td>");
+		        		echo ("<td><div class='btn-group'>
+		        		      <a class='btn btn-mini' href='#'><i class='icon-cog'></i></a>
+		        		      <a class='btn btn-mini dropdown-toggle' data-toggle='dropdown' href='#'><span class='caret'></span></a>
+		        		      <ul class='dropdown-menu'>
+		        		        <li>$editlink</li>
+		        		        <li>$deletelink</li>
+		        		      </ul>
+		        			</div></td>");
 		        	} elseif ($post['Post']['user_id'] == $this->Session->read('Auth.User.id')) {
-		        		echo("<td>$editlink / $deletelink</td>");
+		        		echo("<td><div class='btn-group'>
+		        		      <a class='btn btn-mini' href='#'><i class='icon-cog'></i></a>
+		        		      <a class='btn btn-mini dropdown-toggle' data-toggle='dropdown' href='#'><span class='caret'></span></a>
+		        		      <ul class='dropdown-menu'>
+		        		        <li>$editlink</li>
+		        		        <li>$deletelink</li>
+		        		      </ul>
+		        			</div></td>");
 		        	} elseif ($this->Session->check('Auth.User.id')) {
-		        		echo("<td><span class='muted'>Not owned</span></td>");
+		        		echo("<td></td>");
 		        } ?>
 		    </tr>
 		    <?php endforeach; ?>
 		
 		</table>
 		
-		<hr>
-		
 		<div class='centered'>
-		<?php echo $this->Paginator->prev(); ?> 
+		<?php 
+		if ($this->Paginator->hasPage(2)) {
+			echo ("<hr>"); 
+			echo $this->Paginator->prev();
+			echo (" | ");
+		} ?> 
 		<?php echo $this->Paginator->numbers(); ?> 
-		<?php echo $this->Paginator->next(); ?>
+		<?php 
+		if ($this->Paginator->hasPage(2)) { 
+			echo (" | ");
+			echo $this->Paginator->next();
+		} ?> 
 		</div>
 		
 		<?php echo $this->element('legal'); ?>

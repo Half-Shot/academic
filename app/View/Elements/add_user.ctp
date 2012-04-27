@@ -24,11 +24,6 @@ echo $this->Form->input('pseudo',array(
 echo $this->Form->input('password',array(
 	'before' => '<span class = \'control-label\'>Password</span>'));
 	
-echo $this->Form->input('userbio',array(
-	'style' => 'width:490px',
-	'rows' => '5', 
-	'before' => '<span class = \'control-label\'>About user</span>'));
-	
 echo $this->Form->input('role', array(
 	    'options' => array('admin' => 'Administrator', 'author' => 'Author')
 	));

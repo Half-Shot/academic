@@ -29,7 +29,7 @@ class PostsController extends AppController {
     
     public function index() {
         if ($this->RequestHandler->isRss() ) {
-            $posts = $this->Post->find('all', array('limit' => 20, 'order' => 'Post.created DESC'));
+            $posts = $this->Post->find('all', array('limit' => 15, 'order' => 'Post.created DESC'));
             return $this->set(compact('posts'));
         }
 
@@ -38,7 +38,10 @@ class PostsController extends AppController {
     
     public function archives() {
     	$this->paginate = array(
-    	        'limit' => 20
+    	        'limit' => 20,
+    	        'order' => array(
+    	        'Post.created' => 'desc'
+    	         )
     	    );
     	$data = $this->paginate('Post');
         $this->set('posts', $data);
@@ -82,7 +85,7 @@ class PostsController extends AppController {
         }
         if ($this->Post->delete($id)) {
             $this->Session->setFlash('The post with id #' . $id . ' has been deleted.');
-            $this->redirect(array('action' => 'index'));
+            $this->redirect(array('action' => 'archives'));
         }
     }
 }

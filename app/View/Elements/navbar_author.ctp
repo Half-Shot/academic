@@ -18,8 +18,7 @@ $loggedUserId = $this->Session->read('Auth.User.id');
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> <?php echo $loggedUserEmail ?><b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="<?php echo $this->Html->url('/posts/add/'); ?>"><i class="icon-pencil icon-black"></i> Publish</a></li>
-              <li><a href="<?php echo $this->Html->url('/users/view/'.$loggedUserId); ?>"><i class="icon-user icon-black"></i> View your profile</a></li>
-              <li><a href="<?php echo $this->Html->url('/users/edit/'.$loggedUserId); ?>"><i class="icon-edit icon-black"></i> Edit your info</a></li>
+              <li><a href="<?php echo $this->Html->url('/users/edit/'.$loggedUserId); ?>"><i class="icon-user icon-black"></i> Edit your info</a></li>
               <li class="divider"></li>
               <li><a href="<?php echo $this->Html->url('/users/logout/'); ?>"><i class=" icon-off icon-black"></i> Logout</a></li>
             </ul>

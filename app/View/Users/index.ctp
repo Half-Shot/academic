@@ -4,28 +4,62 @@
 
 <?php App::import('Vendor', 'markdown/markdown-extra'); ?>
 
-<div class='centered'><h1 style="margin-bottom: 20px;">Author(s)</h1></div>
+<div class='centered'><h1 style="margin-bottom: 20px;">Registered user(s)</h1></div>
+
+<p><a class="btn btn-mini btn-success" href="<?php echo $this->Html->url('/users/add/'); ?>">Add an user</a></p>
+
+<table class="table table-striped">
+
+<tr>
+	<th><?php echo $this->Paginator->sort('id');?></th>
+	<th><?php echo $this->Paginator->sort('pseudo');?></th>
+	<th><?php echo $this->Paginator->sort('email');?></th>
+	<th><?php echo $this->Paginator->sort('created');?></th>
+	<th style="width: 75px;"><?php echo $this->Paginator->sort('role');?></th>
+</tr>
 			
 <?php foreach ($users as $user): ?>
+
 <?php 
-$gravatar = md5(strtolower(trim($user['User']['email'])));
 $profileLink = $user['User']['id'];
- ?>
- <?php 
- $editlink = $this->Html->link('Edit', array('action' => 'edit', $user['User']['id'])); 
- $deletelink = $this->Form->postLink(
+$editlink = $this->Html->link('Edit', array('action' => 'edit', $user['User']['id'])); 
+$deletelink = $this->Form->postLink(
      'Delete',
      array('action' => 'delete', $user['User']['id']),
      array('confirm' => 'Are you sure you want to delete this user?'));     
  ?>
-<h3>About <?php echo $user['User']['pseudo']; ?> <small><?php if ('admin' == $this->Session->read('Auth.User.role')) {
-	echo ("($editlink / $deletelink)");
-	} ?></small></h3>
-<table class="table table-striped">
 <tr>
-    <td style="width: 50px;"><a href="<?php echo $this->Html->url('/users/view/'.$profileLink); ?>"><img src="http://www.gravatar.com/avatar/<?php echo $gravatar ?>?s=50" width='50' height='50'></a></td>
-    <td style="text-align: justify;"><?php echo Markdown($user['User']['userbio']) ?></td>
+    <td><code><?php echo $user['User']['id']; ?></code></td>
+    <td><?php echo $user['User']['pseudo']; ?></td>
+    <td><?php echo $user['User']['email']; ?></td>
+    <td><span class="muted"><?php echo $user['User']['created']; ?></span></td>
+    <td>
+    	<div class='btn-group'>
+          <a class='btn btn-mini' href='#'><?php echo $user['User']['role']; ?></a>
+          <a class='btn btn-mini dropdown-toggle' data-toggle='dropdown' href='#'><span class='caret'></span></a>
+          <ul class='dropdown-menu'>
+            <li><?php echo $editlink ?></li>
+            <li><?php echo $deletelink ?></li>
+          </ul>
+    	</div>
+    </td>
 </tr>
-</table>
 
 <?php endforeach; ?>
+
+</table>
+
+<div class='centered'>
+<?php 
+if ($this->Paginator->hasPage(2)) {
+	echo ("<hr>"); 
+	echo $this->Paginator->prev();
+	echo (" | ");
+} ?> 
+<?php echo $this->Paginator->numbers(); ?> 
+<?php 
+if ($this->Paginator->hasPage(2)) { 
+	echo (" | ");
+	echo $this->Paginator->next();
+} ?> 
+</div>
