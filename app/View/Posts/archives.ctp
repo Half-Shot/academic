@@ -65,7 +65,6 @@
 		<div class='centered'>
 		<?php 
 		if ($this->Paginator->hasPage(2)) {
-			echo ("<hr>"); 
 			echo $this->Paginator->prev();
 			echo (" | ");
 		} ?> 
@@ -74,5 +73,6 @@
 		if ($this->Paginator->hasPage(2)) { 
 			echo (" | ");
 			echo $this->Paginator->next();
+			echo ("<hr>");
 		} ?> 
 		</div>

@@ -49,7 +49,8 @@ CREATE TABLE users (
   pseudo VARCHAR(250),
   password VARCHAR(50),
   role VARCHAR(20),
-  userbio TEXT,
+  about TEXT,
+  licence TEXT,
   created DATETIME DEFAULT NULL
 );
   

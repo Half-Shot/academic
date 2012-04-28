@@ -59,8 +59,7 @@ $bodyNoTag = strip_tags($body);
 
 <div class='centered'>
 <?php 
-if ($this->Paginator->hasPage(2)) {
-	echo ("<hr>"); 
+if ($this->Paginator->hasPage(2)) { 
 	echo $this->Paginator->prev();
 	echo (" | ");
 } ?> 
@@ -69,6 +68,7 @@ if ($this->Paginator->hasPage(2)) {
 if ($this->Paginator->hasPage(2)) { 
 	echo (" | ");
 	echo $this->Paginator->next();
+	echo ("<hr>");
 } ?> 
 </div>
 

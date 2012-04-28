@@ -7,7 +7,7 @@
 		
 		<table class="table table-striped">
 		    <tr>
-		        <th><?php echo $this->Paginator->sort('title');?></th>
+		        <th style="min-width: 70px;"><?php echo $this->Paginator->sort('title');?></th>
 		        <th>Preview</th>
 		        <?php 
 		        if ('admin' == $this->Session->read('Auth.User.role')) {
@@ -48,7 +48,6 @@
 		<div class='centered'>
 		<?php 
 		if ($this->Paginator->hasPage(2)) {
-			echo ("<hr>"); 
 			echo $this->Paginator->prev();
 			echo (" | ");
 		} ?> 
@@ -57,5 +56,6 @@
 		if ($this->Paginator->hasPage(2)) { 
 			echo (" | ");
 			echo $this->Paginator->next();
+			echo ("<hr>"); 
 		} ?> 
 		</div>
