@@ -26,6 +26,10 @@ echo $this->Form->input('Contact.message', array(
 	'before' => '<span class = \'control-label\'>Your message</span>',
 	'rows' => 10));
 	
+echo ("<div class='form-actions'>");
+	
 echo ("<input type='submit' class='btn' value='Send message'>"); ?>
 
 <a class="btn btn-danger" href="<?php echo $this->Html->url('/'); ?>">Cancel</a>
+
+</div>

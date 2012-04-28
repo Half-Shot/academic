@@ -55,6 +55,7 @@
     <!-- Javascript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="<?php echo $this->Html->url('/js/bootstrap-dropdown.js'); ?>"></script>
+    <script src="<?php echo $this->Html->url('/js/bootstrap-tab.js'); ?>"></script>
         
 	<?php 
 	if (('admin' == $this->Session->read('Auth.User.role')) && (Configure::read('debug') > 0)) {

@@ -1,4 +1,4 @@
-<?php $this->layout = 'academic'; ?>
+<?php $this->layout = Configure::read('Site.layout'); ?>
 
 <?php $siteName = (Configure::read('Site.name')); ?>
 
@@ -7,18 +7,8 @@
 <?php $this->set("title_for_layout", "$pageName - $siteName"); ?>
 <?php App::import('Vendor', 'markdown/markdown-extra'); ?>
 
-<div class="centered"><h1 style="margin-bottom: 20px;"><?php echo $page['Page']['title'] ?>
-
-<?php 
-$editlink = $this->Html->link('Edit', array('action' => 'edit', $page['Page']['id'])); 
-if ('admin' == $this->Session->read('Auth.User.role')) {
-	echo ("<small>$editlink<small>");
-} ?>
-
-</h1></div>
+<div class="centered"><h1 style="margin-bottom: 20px;"><?php echo $page['Page']['title'] ?></h1></div>
 
 <?php $body = $page['Page']['body'] ?>
 
 <?php echo Markdown($body) ?>
-
-<?php echo $this->element('legal'); ?>

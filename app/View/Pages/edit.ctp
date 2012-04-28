@@ -1,4 +1,4 @@
-<?php $this->layout = 'academic'; ?>
+<?php $this->layout = Configure::read('Site.layout'); ?>
 <?php $this->set("title_for_layout","Edit an article"); ?>
 
 <div class='centered'><h1 style="margin-bottom: 20px;">Edit a page</h1></div>
@@ -25,7 +25,11 @@ echo $this->Form->input('body',array(
 	'before' => '<span class = \'control-label\'>Content</span>'));
     
 echo $this->Form->input('id', array('type' => 'hidden'));
+
+echo ("<div class='form-actions'>");
 	
 echo ("<input type='submit' class='btn' value='Save changes'>"); ?>
 
 <a class="btn btn-danger" href="<?php echo $this->Html->url('/pages/'); ?>">Cancel</a>
+
+</div>

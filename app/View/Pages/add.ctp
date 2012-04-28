@@ -1,11 +1,11 @@
 <?php $this->layout = Configure::read('Site.layout'); ?>
-<?php $this->set("title_for_layout","Add an article"); ?>
+<?php $this->set("title_for_layout","Add a new page"); ?>
 
-<div class='centered'><h1 style="margin-bottom: 20px;">Publish an article</h1></div>
+<div class='centered'><h1 style="margin-bottom: 20px;">Add a new page</h1></div>
 
 <?php
 
-echo $this->Form->create('Post', array(
+echo $this->Form->create('Page', array(
 	'class' => 'form', 
 	'inputDefaults' => array(
 	    'div' => 'control-group',
@@ -25,9 +25,6 @@ echo $this->Form->input('body',array(
 	'placeholder' => 'You can use HTML or Markdown syntax',
 	'before' => '<span class = \'control-label\'>Content</span>'));
 	
-echo $this->Form->input('format', array(
-    'options' => array('standard' => 'Standard post', 'link' => 'Link post →', 'status' => '# Status post', 'image' => 'Image post')));
-    
 echo ("<div class='form-actions'>");
 	
 echo ("<input type='submit' class='btn' value='Publish'>"); ?>

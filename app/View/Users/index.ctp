@@ -1,4 +1,4 @@
-<?php $this->layout = 'academic'; ?>
+<?php $this->layout = Configure::read('Site.layout'); ?>
 <?php $siteName = (Configure::read('Site.name')); ?>
 <?php $this->set("title_for_layout","Authors - $siteName"); ?>
 
@@ -31,7 +31,7 @@ $deletelink = $this->Form->postLink(
 <tr>
     <td><code><?php echo $user['User']['id']; ?></code></td>
     <td><?php echo $user['User']['pseudo']; ?></td>
-    <td><?php echo $user['User']['email']; ?></td>
+    <td><?php echo ("<a href='mailto:".$user['User']['email']."'>".$user['User']['email']."</a>"); ?></td>
     <td><span class="muted"><?php echo $user['User']['created']; ?></span></td>
     <td>
     	<div class='btn-group'>

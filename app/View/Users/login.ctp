@@ -1,4 +1,4 @@
-<?php $this->layout = 'academic'; ?>
+<?php $this->layout = Configure::read('Site.layout'); ?>
 
 <div class='centered'><h1 style="margin-bottom: 20px;">Login</h1></div>
 

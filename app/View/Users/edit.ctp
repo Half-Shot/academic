@@ -1,4 +1,4 @@
-<?php $this->layout = 'academic'; ?>
+<?php $this->layout = Configure::read('Site.layout'); ?>
 
 <?php echo $this->Form->create('User', array(
 	'action' => 'edit',
@@ -11,17 +11,42 @@
 	    'error' => array('attributes' => array('wrap' => 'div', 'class' => 'alert alert-error'))
 ) )); ?>
 
-        <?php 
-		echo $this->Form->input('email', array(
-			'before' => '<span class = \'control-label\'>Email</span>'));
-        echo $this->Form->input('pseudo', array(
-        	'before' => '<span class = \'control-label\'>Pseudo</span>'));
-        echo $this->Form->input('password', array(
-        	'before' => '<span class = \'control-label\'>Password</span>'));
-        echo $this->Form->input('id', array('type' => 'hidden'));
-        
-        echo("<p style='margin-bottom:16px'><i class='icon-info-sign'></i> Please note that editing your info will log you out.</p>");
+<?php 
+echo $this->Form->input('email', array(
+	'before' => '<span class = \'control-label\'>Email</span>'));
+	
+echo $this->Form->input('pseudo', array(
+	'before' => '<span class = \'control-label\'>Pseudo</span>'));
+	
+echo $this->Form->input('password', array(
+	'before' => '<span class = \'control-label\'>Password</span>'));
+	
+echo $this->Form->input('about',array(
+	'rows' => '2',
+	'style' => 'width:490px',
+	'before' => '<span class = \'control-label\'>About you</span>'));
+	
+echo $this->Form->input('licence', array(
+		'before' => '<span class = \'control-label\'>Licence of content</span>',
+	    'options' => array(
+	    	'Licensed under a <a rel=\'license\' href=\'http://creativecommons.org/licenses/by/3.0/\'>CC BY 3.0</a> licence' => 'CC BY 3.0',
+	    	'Licensed under a <a rel=\'license\' href=\'http://creativecommons.org/licenses/by-nd/3.0/\'>CC BY 3.0</a> licence' => 'CC BY-ND 3.0',
+	    	'Licensed under a <a rel=\'license\' href=\'http://creativecommons.org/licenses/by-nc-sa/3.0/\'>CC BY 3.0</a> licence' => 'CC BY-NC-SA 3.0',
+	    	'Licensed under a <a rel=\'license\' href=\'http://creativecommons.org/licenses/by-sa/3.0/\'>CC BY 3.0</a> licence' => 'CC BY-SA 3.0',
+	    	'Licensed under a <a rel=\'license\' href=\'http://creativecommons.org/licenses/by-nc/3.0/\'>CC BY 3.0</a> licence' => 'CC BY-NC 3.0',
+	    	'Licensed under a <a rel=\'license\' href=\'http://creativecommons.org/licenses/by-nc-nd/3.0/\'>CC BY 3.0</a> licence' => 'CC BY-NC-ND 3.0',
+	    	'© All rights reserved' => '© All rights reserved'
+	    )
+	));
+	
+echo $this->Form->input('id', array('type' => 'hidden'));
 
-		echo ("<input type='Submit' class='btn' value='Save changes'>"); ?>
-		
-		<a class="btn btn-danger" href="<?php echo $this->Html->url('/users/'); ?>">Cancel</a>
+echo("<p style='margin-bottom:16px'><i class='icon-info-sign'></i> Please note that editing your info will log you out.</p>");
+
+echo ("<div class='form-actions'>");
+
+echo ("<input type='Submit' class='btn' value='Save changes'>"); ?>
+
+<a class="btn btn-danger" href="<?php echo $this->Html->url('/users/'); ?>">Cancel</a>
+
+</div>

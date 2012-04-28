@@ -13,3 +13,9 @@ if (Configure::read('debug') > 0 ):
 	echo $this->element('exception_stack_trace');
 endif;
 ?>
+
+<hr>
+
+<div class="centered">
+	<p><a href="<?php echo $this->Html->url('/'); ?>">Return to homepage</a></p>
+</div>

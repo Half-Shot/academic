@@ -1,10 +1,10 @@
-<?php $this->layout = 'academic'; ?>
+<?php $this->layout = Configure::read('Site.layout'); ?>
 
 <?php $siteName = (Configure::read('Site.name')); ?>
 
 <?php $this->set("title_for_layout","Publication archives - $siteName"); ?>
 
-		<div class='centered'><h1 style="margin-bottom: 20px;">Archives</h1></div>
+		<div class='centered'><h1 style="margin-bottom: 20px;">Publication archives</h1></div>
 		
 		<table class="table table-striped">
 		    <tr>
@@ -76,5 +76,3 @@
 			echo $this->Paginator->next();
 		} ?> 
 		</div>
-		
-		<?php echo $this->element('legal'); ?>

@@ -3,8 +3,7 @@
 
 <div class='centered'><h1 style="margin-bottom: 20px;"><?php echo $name; ?></h1></div>
 
-<p><?php echo __d('cake', 'Error'); ?>:</p>
-<p><?php echo __d('cake', 'An Internal Error Has Occurred.'); ?>
+<p><?php echo __d('cake', 'Error'); ?>: <?php echo __d('cake', 'An Internal Error Has Occurred.'); ?>
 </p>
 
 <?php
@@ -13,3 +12,8 @@ if (Configure::read('debug') > 0 ):
 endif;
 ?>
 
+<hr>
+
+<div class="centered">
+	<p><a href="<?php echo $this->Html->url('/'); ?>">Return to homepage</a></p>
+</div>

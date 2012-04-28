@@ -1,4 +1,4 @@
-<?php $this->layout = 'academic'; ?>
+<?php $this->layout = Configure::read('Site.layout'); ?>
 
 <?php
 $siteName = (Configure::read('Site.name'));
@@ -16,10 +16,7 @@ $titleNoLink = $post['Post']['title'];
 $articleLink = $this->Html->url(array('controller' => 'posts', 'action' => 'view', $post['Post']['id']));
 $created = $post['Post']['created'];
 $author =  $post['User']['pseudo'];
-$body = String::truncate(Markdown($post['Post']['body']), Configure::read('Site.truncate'), array(
-    "ending" => " (...) <p style='text-align:right;'><small><a href='$articleLink'>Read more →</a></small></p>",
-    "exact" => false,
-));
+$body = Markdown($post['Post']['body']);
 $bodyNoTag = strip_tags($body);
 ?>
 	
@@ -56,6 +53,8 @@ $bodyNoTag = strip_tags($body);
 	");
 } ?>
 
+<hr>
+
 <?php endforeach; ?>
 
 <div class='centered'>
@@ -73,4 +72,6 @@ if ($this->Paginator->hasPage(2)) {
 } ?> 
 </div>
 
-<?php echo $this->element('legal'); ?>
+<div class="centered">
+<p><small>Different copyrights may apply, please check out individual publications for full info</small></p>
+</div>

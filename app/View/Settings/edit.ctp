@@ -1,4 +1,4 @@
-<?php $this->layout = 'academic'; ?>
+<?php $this->layout = Configure::read('Site.layout'); ?>
 <?php $this->set("title_for_layout","Edit a setting"); ?>
 
 <div class='centered'><h1 style="margin-bottom: 20px;">Edit a setting</h1></div>

@@ -35,15 +35,25 @@ class User extends AppModel {
                 'message' => 'A password is required'
             )
         ),
-        'userbio' => array(
+        'about' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'A description is required'
+            ),
+            'between' => array(
+                'rule'    => array('between', 1, 130),
+                'message' => 'Between 1 to 130 characters'
+            )
+        ),
+        'licence' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'A licence is required'
             )
         ),
         'role' => array(
             'valid' => array(
-                'rule' => array('inList', array('admin','author','follower')),
+                'rule' => array('inList', array('admin','author')),
                 'message' => 'Please enter a valid role',
                 'allowEmpty' => false
             )
