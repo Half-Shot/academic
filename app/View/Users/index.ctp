@@ -30,7 +30,7 @@ $deletelink = $this->Form->postLink(
  ?>
 <tr>
     <td><code><?php echo $user['User']['id']; ?></code></td>
-    <td><?php echo $user['User']['pseudo']; ?></td>
+    <td><?php echo $this->Html->link($user['User']['pseudo'], array('action' => 'view', $user['User']['id']));?></td>
     <td><?php echo ("<a href='mailto:".$user['User']['email']."'>".$user['User']['email']."</a>"); ?></td>
     <td><span class="muted"><?php echo $user['User']['created']; ?></span></td>
     <td>

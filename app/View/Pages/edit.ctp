@@ -18,6 +18,9 @@ echo $this->Form->create('Page', array(
 
 echo $this->Form->input('title',array(
 	'style' => 'width:490px', 'before' => '<span class = \'control-label\'>Title</span>'));
+	
+echo $this->Form->input('slug',array(
+	'style' => 'width:490px', 'before' => '<span class = \'control-label\'>Slug</span>'));
 
 echo $this->Form->input('body',array(
 	'style' => 'width:490px;font-family: Menlo, Monaco, Courier New, monospace;',

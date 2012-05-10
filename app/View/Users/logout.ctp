@@ -1,3 +1,1 @@
-<?php 
-$this->redirect($this->Auth->logout());
-?>
+<?php $this->redirect($this->Auth->logout()); ?>

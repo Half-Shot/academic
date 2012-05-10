@@ -1,7 +1,6 @@
 <?php
 class UsersController extends AppController {
-
-public $helpers = array('Paginator');
+public $helpers = array('Paginator', 'Cache');
 public $components = array(
     'Auth' => array(
         'authenticate' => array(
@@ -11,11 +10,16 @@ public $components = array(
         )
     )
 );
-var $paginate = array(
-    'limit' => 15,
-    'order' => array(
-         'User.id' => 'asc'
-     )
+public $cacheAction = array(
+    'view' => 36000,
+);
+var $paginate = array('User'=>array(
+	    'limit' => 15,
+	    'order' => array(
+	         'User.id' => 'asc'
+	     )
+	),
+	
 );
 	
 	public function login() {
@@ -39,6 +43,11 @@ var $paginate = array(
     public function index() {
         $this->User->recursive = 0;
         $this->set('users', $this->paginate());
+    }
+    
+    public function view($id) {
+        $this->User->id = $id;
+        $this->set('user', $this->User->read());
     }
 
     public function add() {

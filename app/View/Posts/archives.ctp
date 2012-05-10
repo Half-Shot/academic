@@ -5,9 +5,15 @@
 <?php $this->set("title_for_layout","Publication archives - $siteName"); ?>
 
 		<div class='centered'><h1 style="margin-bottom: 20px;">Publication archives</h1></div>
+
+		
+		<?php if ((Configure::read('Site.search')) != 'no') {
+			echo $this->element('search'); 
+		} ?>
 		
 		<table class="table table-striped">
 		    <tr>
+		        <th>?</th>
 		        <th><?php echo $this->Paginator->sort('title');?></th>
 		        <th style="width: 135px;"><?php echo $this->Paginator->sort('created');?></th>
 		        <?php 
@@ -29,11 +35,19 @@
 		    
 		    <tr>
 		        <td>
-		            <?php if (($post['Post']['format']) == 'status') {
-		            	echo ("#");
-		            }; ?> <?php echo $this->Html->link($post['Post']['title'], array('action' => 'view', $post['Post']['id']));?> <?php if(($post['Post']['format']) == 'link') {
-		            	echo ("→");
-		            } ?>
+		        <?php if (($post['Post']['format']) == 'standard') {
+		            	echo ("<i class=' icon-pencil'></i> ");
+		        } elseif (($post['Post']['format']) == 'link') {
+		        		echo("<i class='icon-bookmark'></i> ");
+		        } elseif (($post['Post']['format']) == 'image') {
+		        		echo("<i class='icon-picture'></i> ");
+		        } elseif (($post['Post']['format']) == 'status') {
+		        		echo("<i class='icon-exclamation-sign'></i> ");
+		        } ?>
+		        </td>
+		        
+		        <td>
+		        <?php echo $this->Html->link($post['Post']['title'], "../post/".$post['Post']['slug']); ?>
 		        </td>
 		        <td><span class="muted"><?php echo $post['Post']['created']; ?></span></td>
 		        <?php if ('admin' == $this->Session->read('Auth.User.role')) {

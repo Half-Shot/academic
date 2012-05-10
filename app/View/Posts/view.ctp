@@ -1,20 +1,20 @@
 <?php $this->layout = Configure::read('Site.layout'); ?>
-
 <?php $siteName = (Configure::read('Site.name')); ?>
-
 <?php $postName = ($post['Post']['title']); ?>
-
 <?php $this->set("title_for_layout", "$postName - $siteName"); ?>
 <?php App::import('Vendor', 'markdown/markdown-extra'); ?>
 
+<?php $postDate = strtotime($post['Post']['created']); ?>
+
+
 <div class="centered">
-<h2><?php if (($post['Post']['format']) == 'status') {
-	echo ("# ");
-} ?>
-<?php echo $post['Post']['title'] ?> <?php if(($post['Post']['format']) == 'link') {
+<h2>
+<?php echo $post['Post']['title'] ?>
+<?php if(($post['Post']['format']) == 'link') {
 	echo ("→");
-} ?></h2>
-<p><i><small>Written <?php echo $post['Post']['created'] ?> by
+} ?>
+</h2>
+<p><i><small>Published <?php echo date('l dS M Y' , $postDate) ?> by
 <?php 
 if ((Configure::read('Author.info')) != 'no') {
 	echo ("<a href='#author'>".$post['User']['pseudo']."</a>");
@@ -56,9 +56,5 @@ if ((Configure::read('Author.info')) != 'no') {
 if ((Configure::read('Disqus.id')) != 'none') {
 	echo $this->element('comments'); 
 } ?>
-
-<div class="centered">
-<p><small><?php echo $post['User']['licence'] ?></small></p>
-</div>
 
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f8947e47c1964dd"></script>

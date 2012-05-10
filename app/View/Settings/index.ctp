@@ -104,7 +104,21 @@
       	endif;
       ?>
       
-      <h3>Server check</h3>
+      <h3>Cache check</h3>
+      
+      <?php 
+      if ((Configure::read('Cache.check')) == '1'):
+      	echo "<div class='alert alert-success'>";
+      			echo ('<em>Cache.check</em> is activated.');
+      		echo '</div>';
+      	else:
+      		echo "<div class='alert alert-error'>";
+      			echo ("<em>Cache.check</em> is not activated. Please look for <em>Cache.check</em> in APP/Config/core.php line 130.");
+      		echo '</div>';
+      	endif;
+       ?>
+      
+      <h3>Server</h3>
       
       <p>
       <?php

@@ -17,6 +17,9 @@ class Post extends AppModel {
                 'allowEmpty' => false
             )
         ),
+        'slug' => array(
+            'rule' => 'notEmpty'
+        ),
         'body' => array(
             'rule' => 'notEmpty'
         )
@@ -25,5 +28,5 @@ class Post extends AppModel {
 	public function isOwnedBy($post, $user) {
 	    return $this->field('id', array('id' => $post, 'user_id' => $user)) === $post;
 	}
-	
+		
 }

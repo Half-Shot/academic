@@ -7,8 +7,8 @@
 		
 		<table class="table table-striped">
 		    <tr>
-		        <th style="min-width: 70px;"><?php echo $this->Paginator->sort('title');?></th>
-		        <th>Preview</th>
+		        <th><?php echo $this->Paginator->sort('title');?></th>
+		        <th>Content preview</th>
 		        <?php 
 		        if ('admin' == $this->Session->read('Auth.User.role')) {
 		        	echo ("<th style='width:40px'>Admin.</th>");
@@ -28,7 +28,7 @@
 		    ?>
 		    
 		    <tr>
-		        <td><?php echo $this->Html->link($page['Page']['title'], array('action' => 'view', $page['Page']['id']));?></td>
+		        <td><?php echo $this->Html->link($page['Page']['title'], '../page/'.$page['Page']['slug']); ?></td>
 		        <td style="text-align: justify;"><?php echo $preview ?></td>
 		        <?php if ('admin' == $this->Session->read('Auth.User.role')) {
 		        		echo ("<td><div class='btn-group'>

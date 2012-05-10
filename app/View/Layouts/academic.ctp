@@ -25,6 +25,7 @@
     
   </head>
 
+    <!--nocache-->
     <?php 
     if ('admin' == $this->Session->read('Auth.User.role')) {
     	echo $this->element('navbar_admin');
@@ -32,15 +33,15 @@
     	echo $this->element('navbar_author');
     } else {
     	echo('<body>');
-    }
-    ?>
+    } ?>
+    <!--/nocache-->
 
-    <!-- Container -->
     <div class="container">
     
 		<div class="content">
-				
+		<!--nocache-->		
 		<?php echo $this->Session->flash(); ?>
+		<!--/nocache-->
 		<?php echo $this->element('header'); ?>
 		<?php echo $this->fetch('content'); ?>
 			    
@@ -50,27 +51,23 @@
 		    <p><small><a href="<?php echo $this->Html->url('/posts.rss'); ?>">RSS</a> - Powered by <a href="http://academic-cms.github.com/">academic*</a></small></p>
 		</footer>
       
-     </div>
+    </div>
     
     <!-- Javascript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="<?php echo $this->Html->url('/js/bootstrap-transition.js'); ?>"></script>
     <script src="<?php echo $this->Html->url('/js/bootstrap-dropdown.js'); ?>"></script>
     <script src="<?php echo $this->Html->url('/js/bootstrap-tab.js'); ?>"></script>
-        
+    <script src="<?php echo $this->Html->url('/js/bootstrap-modal.js'); ?>"></script>
+    
+    <!--nocache-->   
 	<?php 
 	if (('admin' == $this->Session->read('Auth.User.role')) && (Configure::read('debug') > 0)) {
 		echo ($this->element('sql_dump'));
 	} ?>
+	<!--/nocache-->
 
   </body>
 </html>
 
-<!-- 
-
-Powered by academic*
-
-Download : <http://academic-cms.github.com/>
-
-academic* is Copyright (c) 2012 Jean Fau
-
--->
+<!-- Powered by academic* - Download : <http://academic-cms.github.com/> -->

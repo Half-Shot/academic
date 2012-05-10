@@ -6,7 +6,12 @@ class User extends AppModel {
 
     public $name = 'User';
     
-    public $hasMany = 'Post';
+    public $hasMany = array(
+            'Post' => array(
+                'limit' => '10',
+                'order' => 'Post.created DESC'
+            )
+    );
     
     public $validate = array(
         'email' => array(
@@ -40,16 +45,6 @@ class User extends AppModel {
                 'rule' => array('notEmpty'),
                 'message' => 'A description is required'
             ),
-            'between' => array(
-                'rule'    => array('between', 1, 130),
-                'message' => 'Between 1 to 130 characters'
-            )
-        ),
-        'licence' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'A licence is required'
-            )
         ),
         'role' => array(
             'valid' => array(
@@ -66,4 +61,5 @@ class User extends AppModel {
        }
        return true;
    }
+   
 }

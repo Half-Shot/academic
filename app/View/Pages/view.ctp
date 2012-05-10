@@ -1,9 +1,6 @@
 <?php $this->layout = Configure::read('Site.layout'); ?>
-
 <?php $siteName = (Configure::read('Site.name')); ?>
-
 <?php $pageName = ($page['Page']['title']); ?>
-
 <?php $this->set("title_for_layout", "$pageName - $siteName"); ?>
 <?php App::import('Vendor', 'markdown/markdown-extra'); ?>
 

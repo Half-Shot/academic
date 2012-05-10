@@ -34,4 +34,10 @@ public $helpers = array('Paginator');
             }
         }
     }
+    
+    public function clearCache() {
+    	clearCache();
+    	$this->Session->setFlash('The cache has been cleared.');
+    	$this->redirect(array('controller' => 'posts', 'action' => 'index'));
+    }
 }

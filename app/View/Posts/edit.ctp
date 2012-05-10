@@ -18,6 +18,11 @@ echo $this->Form->create('Post', array(
 
 echo $this->Form->input('title',array(
 	'style' => 'width:490px', 'before' => '<span class = \'control-label\'>Title</span>'));
+	
+if ('admin' == $this->Session->read('Auth.User.role')) {	
+	echo $this->Form->input('slug',array(
+		'style' => 'width:490px', 'before' => '<span class = \'control-label\'>Slug</span>'));
+}
 
 echo $this->Form->input('body',array(
 	'style' => 'width:490px;font-family: Menlo, Monaco, Courier New, monospace;',
@@ -25,7 +30,7 @@ echo $this->Form->input('body',array(
 	'before' => '<span class = \'control-label\'>Content</span>'));
 	
 echo $this->Form->input('format', array(
-    'options' => array('standard' => 'Standard post', 'link' => 'Link post →', 'status' => '# Status post', 'image' => 'Image post')));
+    'options' => array('standard' => 'Standard post', 'link' => 'Link post', 'status' => 'Status post', 'image' => 'Image post')));
     
 echo $this->Form->input('id', array('type' => 'hidden'));
 

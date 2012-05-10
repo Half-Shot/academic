@@ -1,8 +1,12 @@
 <?php
 class PagesController extends AppController {
 public $name = 'Pages';
-public $helpers = array('Html', 'Form', 'Paginator');
+public $helpers = array('Html', 'Form', 'Paginator', 'Cache');
 public $components = array('Session');
+public $cacheAction = array(
+    'view' => 36000,
+    'index' => 36000,
+);
 var $paginate = array(
     'limit' => 15,
     'order' => array(
@@ -23,12 +27,21 @@ var $paginate = array(
     }
 
     public function view($id) {
-        $this->Page->id = $id;
-        $this->set('page', $this->Page->read());
+    	$page = $this->Page->find('first', array(
+    		'conditions' => array(
+    			"or" => array(
+    				'Page.id' => $id, //for permalinks
+    				'Page.slug' => $id //for SEO urls
+    			)
+    		),
+    	));
+    	$this->set(compact('page'));
     }
     
     public function add() {
         if ($this->request->is('post')) {
+        	$noAccents = $this->removeAccents($this->data['Page']['title']); //remove accents
+        	$this->request->data['Page']['slug'] = $this->getStringAsURL("_".$noAccents); //stores page slug
             if ($this->Page->save($this->request->data)) {
                 $this->Session->setFlash('Your page has been saved.');
                 $this->redirect(array('action' => 'index'));

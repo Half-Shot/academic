@@ -2,10 +2,10 @@
 
 <div style="padding: 5px; background: #FBFBFB; border-top: 1px solid #EAEAEA; border-bottom: 1px solid #EAEAEA; text-align: center; margin-bottom: 5px; margin-top: 20px; color: #999999;">
 <h4 style="text-transform:uppercase; font-weight: 300;">
-<a href="<?php echo $this->Html->url('/pages/view/1/'); ?>">About</a> • 
+<a href="<?php echo $this->Html->url('/page/about/'); ?>">About</a> • 
 <a href="<?php echo $this->Html->url('/contacts/'); ?>">Contact</a> • 
 <a href="<?php echo $this->Html->url('/posts/archives/'); ?>">Archives</a> • 
-<a href="<?php echo $this->Html->url('/pages/view/2/'); ?>">Links</a> • 
+<a href="<?php echo $this->Html->url('/pages/link/'); ?>">Links</a> • 
 <a href="<?php echo $this->Html->url('/pages/'); ?>">More →</a>
 </h4>
 </div>

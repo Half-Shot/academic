@@ -11,10 +11,10 @@ $siteDescription = (Configure::read('Site.description')); ?>
 <?php foreach ($posts as $post): ?>
 
 <?php 
-$title = $this->Html->link($post['Post']['title'], array('controller' => 'posts', 'action' => 'view', $post['Post']['id']));
+$title = $this->Html->link($post['Post']['title'], "../post/".$post['Post']['slug']);
 $titleNoLink = $post['Post']['title'];
-$articleLink = $this->Html->url(array('controller' => 'posts', 'action' => 'view', $post['Post']['id']));
-$created = $post['Post']['created'];
+$articleLink = $this->Html->url("../post/".$post['Post']['slug']);
+$created = strtotime($post['Post']['created']);
 $author =  $post['User']['pseudo'];
 $body = Markdown($post['Post']['body']);
 $bodyNoTag = strip_tags($body);
@@ -23,21 +23,21 @@ $bodyNoTag = strip_tags($body);
 <?php if (($post['Post']['format']) == 'standard') {
 	echo ("
 	<div class='centered'><h2>$title</h2>
-	<p><i><small>Written $created by $author</small></i></p>
+	<p><i><small>Published ".date('l dS M Y' , $created)." by $author</small></i></p>
 	</div>
 	$body
 	");
 } else if (($post['Post']['format']) == 'link') {
 	echo ("
 	<div class='centered'><h2>$title →</h2>
-	<p><i><small>Written $created by $author</small></i></p>
+	<p><i><small>Published ".date('l dS M Y' , $created)." by $author</small></i></p>
 	</div>
 	$body
 	");
 } else if (($post['Post']['format']) == 'status') {
 	echo ("
 	<div class='alert'>
-	<div class='centered' style='padding-top:5px; padding-bottom:5px;'># $title</div>
+	<div class='centered' style='padding-top:5px; padding-bottom:5px;'>$title</div>
 	</div>
 	");
 } else if (($post['Post']['format']) == 'image') {
@@ -70,8 +70,4 @@ if ($this->Paginator->hasPage(2)) {
 	echo $this->Paginator->next();
 	echo ("<hr>");
 } ?> 
-</div>
-
-<div class="centered">
-<p><small>Different copyrights may apply, please check out individual publications for full info</small></p>
 </div>

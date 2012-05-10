@@ -1,8 +1,13 @@
 <?php
 class PostsController extends AppController {
 	public $name = 'Posts';
-    public $helpers = array('Html', 'Form', 'Paginator', 'Text');
+    public $helpers = array('Html', 'Form', 'Paginator', 'Text', 'Cache');
     public $components = array('Session','RequestHandler');
+    public $cacheAction = array(
+        'view' => 36000,
+        'index' => 36000,
+        'archives' => 36000,
+    );
     var $paginate = array(
         'limit' => 5,
         'order' => array(
@@ -29,8 +34,17 @@ class PostsController extends AppController {
     
     public function index() {
         if ($this->RequestHandler->isRss() ) {
-            $posts = $this->Post->find('all', array('limit' => 15, 'order' => 'Post.created DESC'));
+            $posts = $this->Post->find('all', array(
+            	'limit' => 15,
+            	'order' => 'Post.created DESC'
+            	));
             return $this->set(compact('posts'));
+            
+        } elseif ($this->RequestHandler->isXml() ) {
+        	$posts = $this->Post->find('all', array(
+        		'order' => 'Post.created DESC'
+        		));
+        	return $this->set(compact('posts'));
         }
 
         $this->set('posts', $this->paginate('Post'));
@@ -38,24 +52,40 @@ class PostsController extends AppController {
     
     public function archives() {
     	$this->paginate = array(
-    	        'limit' => 20,
+    	        'limit' => 15,
     	        'order' => array(
     	        'Post.created' => 'desc'
     	         )
     	    );
     	$data = $this->paginate('Post');
         $this->set('posts', $data);
-        //debug($this->Post->find('all'));
     }
-
+    
+    public function search() {
+    	$this->Post->set($this->data);
+    	if ($this->request->is('post')) {
+    		$input = $this->data['Search']['input'];
+    		$this->redirect('http://www.google.fr/search?aq=f&sourceid=chrome&ie=UTF-8&q=site%3A'.Router::url('/',true)." ".$input);
+    	}
+    }
+    
     public function view($id) {
-        $this->Post->id = $id;
-        $this->set('post', $this->Post->read());
+    	$post = $this->Post->find('first', array(
+    		'conditions' => array(
+    			"or" => array(
+    				'Post.id' => $id, //for permalinks
+    				'Post.slug' => $id //for SEO urls
+    			)
+    		),
+    	));
+    	$this->set(compact('post'));
     }
 
     public function add() {
         if ($this->request->is('post')) {
         	$this->request->data['Post']['user_id'] = $this->Auth->user('id'); //stores user id
+        	$noAccents = $this->removeAccents($this->data['Post']['title']); //remove accents
+        	$this->request->data['Post']['slug'] = date('Y-m-d')."_".$this->getStringAsURL("_".$noAccents); //stores post slug
             if ($this->Post->save($this->request->data)) {
                 $this->Session->setFlash('Your post has been saved.');
                 $this->redirect(array('action' => 'index'));
@@ -88,4 +118,5 @@ class PostsController extends AppController {
             $this->redirect(array('action' => 'archives'));
         }
     }
+    
 }

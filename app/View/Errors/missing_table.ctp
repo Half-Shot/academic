@@ -14,7 +14,8 @@
 /* Create the posts table: */
 CREATE TABLE posts (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  title VARCHAR(50),
+  title VARCHAR(255),
+  slug VARCHAR(255),
   body TEXT,
   created DATETIME DEFAULT NULL,
   format VARCHAR(20) DEFAULT NULL,
@@ -23,21 +24,22 @@ CREATE TABLE posts (
 
 /* Insert a publication: */
 INSERT INTO posts (title,body,created,format,user_id)
-  VALUES ('Welcome to academic*', "You can edit or delete this publication by creating an administrator account &lt;a href='/users/add/'&gt;here&lt;/a&gt;.", NOW(), 'standard', '1');
+  VALUES ('Welcome to academic*', 'welcome_to_academic', "You can edit or delete this publication by creating an administrator account &lt;a href='/users/add/'&gt;here&lt;/a&gt;.", NOW(), 'standard', '1');
   
 /* Create the pages table: */
 CREATE TABLE pages (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(50),
+  slug VARCHAR(255),
   body TEXT,
   created DATETIME DEFAULT NULL
 );
 
 /* Insert two pages: */
-INSERT INTO pages (title,body,created)
-  VALUES ('About', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a dui metus, vitae auctor dolor. Fusce leo turpis, sagittis sed dignissim id, rhoncus ac diam. Nam suscipit rutrum venenatis. Donec mi urna, pharetra eget cursus ut, interdum in risus.', NOW());
-INSERT INTO pages (title,body,created)
-  VALUES ('Links', '###Link category
+INSERT INTO pages (title,slug,body,created)
+  VALUES ('About', 'about', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a dui metus, vitae auctor dolor. Fusce leo turpis, sagittis sed dignissim id, rhoncus ac diam. Nam suscipit rutrum venenatis. Donec mi urna, pharetra eget cursus ut, interdum in risus.', NOW());
+INSERT INTO pages (title,slug,body,created)
+  VALUES ('Links', 'links', '###Link category
   * [Link1](#)
   * [Link2](#)
   * [Link3](#)', NOW());
@@ -50,14 +52,14 @@ CREATE TABLE users (
   password VARCHAR(50),
   role VARCHAR(20),
   about TEXT,
-  licence TEXT,
   created DATETIME DEFAULT NULL
 );
   
 /* Create the settings table: */
 CREATE TABLE settings (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(150),
+  name VARCHAR(255),
+  slug VARCHAR(255),
   value VARCHAR(300)
 );
 
@@ -76,6 +78,8 @@ INSERT INTO settings (name,value)
   VALUES ('Google.analytics', 'none');
 INSERT INTO settings (name,value)
   VALUES ('Disqus.id', 'none');
+INSERT INTO settings (name,value)
+  VALUES ('Gripr.info', 'no');
 </pre>
 
 <hr>

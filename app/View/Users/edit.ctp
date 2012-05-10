@@ -22,22 +22,9 @@ echo $this->Form->input('password', array(
 	'before' => '<span class = \'control-label\'>Password</span>'));
 	
 echo $this->Form->input('about',array(
-	'rows' => '2',
+	'rows' => '5',
 	'style' => 'width:490px',
 	'before' => '<span class = \'control-label\'>About you</span>'));
-	
-echo $this->Form->input('licence', array(
-		'before' => '<span class = \'control-label\'>Licence of content</span>',
-	    'options' => array(
-	    	'Licensed under a <a rel=\'license\' href=\'http://creativecommons.org/licenses/by/3.0/\'>CC BY 3.0</a> licence' => 'CC BY 3.0',
-	    	'Licensed under a <a rel=\'license\' href=\'http://creativecommons.org/licenses/by-nd/3.0/\'>CC BY 3.0</a> licence' => 'CC BY-ND 3.0',
-	    	'Licensed under a <a rel=\'license\' href=\'http://creativecommons.org/licenses/by-nc-sa/3.0/\'>CC BY 3.0</a> licence' => 'CC BY-NC-SA 3.0',
-	    	'Licensed under a <a rel=\'license\' href=\'http://creativecommons.org/licenses/by-sa/3.0/\'>CC BY 3.0</a> licence' => 'CC BY-SA 3.0',
-	    	'Licensed under a <a rel=\'license\' href=\'http://creativecommons.org/licenses/by-nc/3.0/\'>CC BY 3.0</a> licence' => 'CC BY-NC 3.0',
-	    	'Licensed under a <a rel=\'license\' href=\'http://creativecommons.org/licenses/by-nc-nd/3.0/\'>CC BY 3.0</a> licence' => 'CC BY-NC-ND 3.0',
-	    	'© All rights reserved' => '© All rights reserved'
-	    )
-	));
 	
 echo $this->Form->input('id', array('type' => 'hidden'));
 

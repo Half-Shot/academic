@@ -27,6 +27,10 @@
  */
 	Router::connect('/', array('controller' => 'posts', 'action' => 'index'));
 	
+	Router::connect('/post/:slug', array('controller' => 'posts', 'action' => 'view'), array('pass' => array('slug')));
+	
+	Router::connect('/page/:slug', array('controller' => 'pages', 'action' => 'view'), array('pass' => array('slug')));
+	
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
