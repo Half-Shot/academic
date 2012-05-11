@@ -23,7 +23,7 @@ CREATE TABLE posts (
 );
 
 /* Insert a publication: */
-INSERT INTO posts (title,body,created,format,user_id)
+INSERT INTO posts (title,slug,body,created,format,user_id)
   VALUES ('Welcome to academic*', 'welcome_to_academic', "You can edit or delete this publication by creating an administrator account &lt;a href='/users/add/'&gt;here&lt;/a&gt;.", NOW(), 'standard', '1');
   
 /* Create the pages table: */
