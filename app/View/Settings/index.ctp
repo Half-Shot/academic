@@ -161,5 +161,17 @@
       	?>
       </p>
     </div>
+       
+    <h3>Version</h3>
+    
+    <?php 
+    $data = file_get_contents('http://academic-cms.github.com/infos.xml');
+    $response = Xml::build($data);
+     ?>
+    
+    <p>Current version is <code><?php echo Configure::read('Academic.version'); ?></code></br>
+    Latest available version is <code><?php echo $response->current; ?></code> published <?php echo $response->published; ?></p>
+    <p><a href="http://github.com/academic-cms/academic/zipball/master">Download latest version</a> or <a href="https://github.com/academic-cms/academic">view changes</a> on Github.</p>
+    </p>
     
 </div>
