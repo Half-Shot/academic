@@ -20,6 +20,7 @@
  */
  
  Configure::write('Academic.version', '1.0.1');
+ Configure::write('Academic.published', '2012-05-11');
 
 /**
  * CakePHP Debug Level:

@@ -61,6 +61,7 @@
           </tr>
           
       </table>
+      
     </div>
     
     <div class="tab-pane" id="server">
@@ -168,10 +169,21 @@
     $data = file_get_contents('http://academic-cms.github.com/infos.xml');
     $response = Xml::build($data);
      ?>
-    
-    <p>Current version is <code><?php echo Configure::read('Academic.version'); ?></code></br>
-    Latest available version is <code><?php echo $response->current; ?></code> published <?php echo $response->published; ?></p>
-    <p><a href="http://github.com/academic-cms/academic/zipball/master">Download latest version</a> or <a href="https://github.com/academic-cms/academic">view changes</a> on Github.</p>
-    </p>
+     
+	 <table class="table table-striped">
+	 
+	     <tr>
+	         <td>Current academic* version</td>
+	         <td><code><?php echo Configure::read('Academic.version'); ?></code></td>
+	         <td><span class="muted">Published <?php echo Configure::read('Academic.published'); ?></span></td>
+	     </tr>
+	     <tr>
+	         <td>Latest available version</td>
+	         <td><code><?php echo $response->current; ?></code></td>
+	         <td><span class="muted">Published <?php echo $response->published; ?></span></td>
+	     </tr>
+
+	     
+	 </table>
     
 </div>
