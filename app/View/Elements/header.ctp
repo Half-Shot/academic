@@ -5,7 +5,7 @@
 <a href="<?php echo $this->Html->url('/page/about/'); ?>">About</a> • 
 <a href="<?php echo $this->Html->url('/contacts/'); ?>">Contact</a> • 
 <a href="<?php echo $this->Html->url('/posts/archives/'); ?>">Archives</a> • 
-<a href="<?php echo $this->Html->url('/page/link/'); ?>">Links</a> • 
+<a href="<?php echo $this->Html->url('/page/links/'); ?>">Links</a> • 
 <a href="<?php echo $this->Html->url('/pages/'); ?>">More →</a>
 </h4>
 </div>
